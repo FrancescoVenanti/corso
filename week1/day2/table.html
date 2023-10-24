@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" description="">
+    <title>tabelle</title>
+</head>
+<body>
+    
+    <table><!--table è il tag parent: tutta la mia tabella sarà compresa tra l'apertura e la chiusura di questo tag-->
+         <caption>Presenze classe full stack 0623B</caption><!--Definisce l'intestazione della tabella-->
+         <tr><!-- tr sta per table row indica la riga di una tabella, è child di table-->
+            <th>Nome</th><!-- table head è il tag che marca le celle della prima riga-->
+            <th>Data</th>
+            <th>Presente </th>
+         </tr>
+         <tr>
+            <td>Alessandro</td><!--table data indica la singola cella della riga, è elemento child di tr-->
+            <td>24-10</td>
+            <td>si</td>
+         </tr>
+         <tr>
+            <td>Alessio</td>
+            <td>24-10</td>
+            <td>si</td>
+         </tr>
+         <tr>
+            <td>Alfonso</td>
+            <td>24-10</td>
+            <td>si</td>
+         </tr>
+         <tr>
+            <td colspan="3">totale 44 presenti</td><!-- colspan unisce in orizzontale le celle (in questo caso ne unisce 3) unisce le colonne-->
+                                                   <!-- rowspan unisce in verticale le celle unisce le right-->
+         </tr>
+    </table><hr>
+
+    <!--Per le tabelle di grandi dimensioni inserisco nuovi tag
+        thead intestazione tabella
+        tbody corpo della tabella
+        tfoot piè pagina della tabella
+    -->
+    <table>
+        <thead>
+            <tr>
+                <th>Competenze</th>
+                <th>Livello</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Html</td>
+                <td>in crescita</td>
+            </tr>
+            <tr>
+                <td>css</td>
+                <td>buono</td>
+            </tr>
+            <tr>
+                <td>javascript</td>
+                <td>cosi cosi</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">livello medio: buono</td>
+            </tr>
+        </tfoot>
+    </table><hr>
+
+    <!-- annidare tabelle -->
+    <table>
+        <tr>
+            <th>Studente</th>
+            <th>Presenza</th>
+        </tr>
+        <tr>
+            <td>Alice</td>
+            <td>si</td>
+        </tr>
+        <tr>
+            <td>Alvise</td>
+            <td>
+                <table><!-- table può essere parent oppure child di td -->
+                    <tr>
+                        <td>dalle 9 alle 10 si</td>
+                        <td>dalle 10 alle 11 no</td>
+                        <td>dalle 13 si</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table><hr>
+
+</body>
+</html>

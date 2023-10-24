@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia</title>
+</head>
+<body>
+
+    <!-- audio -->
+
+    <!--
+    <audio>
+        <source src="audio/hearthbeat.mp3" type="audio/mp3">
+        <source src="audio/hearthbeat.mp3" type="audio/ogg">
+        # lo uso solo se per qualche motivo devo caricare più formati dello stesso file
+    </audio>
+    -->
+    <audio src="audio/heartbeat.mp3" controls></audio><!-- controls fondamentare per far apparire i comandi -->
+    <!-- altri attributi 
+                        autoplay fa partire in automatico (ormai è quasi impossibile)
+                        controls fondamentare per avere controlli
+                        loop fa eseguire in loop
+                        muted per mutare l'audio
+                        src percorso del file (fondamentale)
+     -->
+     <br>
+
+     <!-- video -->
+
+     <video src="video/sea.mp4" controls poster="" width="300"></video>
+     <!-- attributi 
+                autoplay
+                controls
+                loop
+                muted
+                src
+                width/height dimensioni per il player
+                poster immagine di copertina
+    -->
+    <br>
+
+    <picture>
+        <source media="(min-width:1024px)" srcset="immagine_grande.jpg">
+        <source media="(min-width:768px)" srcset="immagine_media.jpg">
+        <source src="immagine_piccola.jpg" alt="logo">
+    </picture>
+
+    <!-- incorporo video da siti terzi-->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/-W9zpUKfyCU?si=UZBoREbX0nXU6Jy0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <br>
+
+    <!-- google maps -->
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11222.015416338907!2d11.270642576049909!3d45.318447075510534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477f6af804efff39%3A0xf83d3ef22677aa30!2sOsteria%20Dogana%20dal%201969!5e0!3m2!1sit!2sit!4v1698142021174!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <br>
+
+    </body>
+</html>

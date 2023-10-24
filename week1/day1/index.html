@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        nel tag <head> metto le info ausiliari (titolo della pagina, descrizione)
+    -->
+    <title>La mia prima pagina web</title>
+    
+    <meta charset="utf-8"> <!--<meta> è un tag empty e non chiude, qui passo il set di caratteri-->
+    <meta name="description" content="Qui andrebbe la descrizione della mia pagina">
+    <meta name="viewprot" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <!--
+        Questo è un commento (non viene mostrato a video dal browser)
+        nel tag body metto tutti i tag che voglio che vengano parsati (interpretati) dal browser (per essere mostrati a video devono stare fuori dal commento)
+    -->
+
+    <h1>Titolo principale</h1>
+    <h2>Titolo principale</h2>
+    <h3>Titolo principale</h3>
+    <h4>Titolo principale</h4>
+    <h5>Titolo principale</h5>
+    <h6>Titolo principale</h6>
+    <!-- h sta per heading (intestazione) Sono elementi di blocco cioè occupano TUTTO lo spazio orizzontale e si posizionano uno sotto l'altro-->
+
+    <p>Anche il tag p che serve a formattare i paragrafi è tag di blocco</p>
+    <p>Infatti se metto un secondo paragrafo si posiziona a capo</p>
+
+    <!-- le liste o elenchi puntati. Due tipi di liste: ordinate e non ordinate -->
+    <ol type="a"><!-- ordered list quindi lista ordinata.-->
+        <li>Primo elemento</li><!-- list item cioe elementi di lista-->
+        <li>Secondo elemento</li>
+        <li>Terzo elemento</li>
+    </ol>
+
+    <ul type="square"><!-- unordered list quindi lista non ordinata. Valori possibili circle, disc e square-->
+        <li>Scrivere il codice in sisual code
+            <ul><!--Posso annidare liste dentro altre liste-->
+                <li>Aggiunmgo i nuovi tag</li>
+                <li>Metto i commenti per ricordarmeli meglio</li>
+                <li>Memorizzo, imparo e controllo il codice</li>
+           </ul>
+        </li>
+        <li>Salvare il file</li>
+        <li>Ricaricare il browser e verificare gli aggiornamenti</li>
+
+    </ul>
+
+    <!-- Description list -->
+    <dl>
+        <dt>HTML</dt><!-- description term -->
+        <dd>linguaggio di marcatura semantica</dd><!-- descroption data -->
+        <dt>CSS</dt>
+        <dd>Linguaggio di formattazione</dd>
+        <dt>Browser</dt>
+        <dd>Programma per la navigazione</dd>
+    </dl>
+    
+    <address>tag semantico: ci dice che in questa porzione di contenuto ci sono info anagrafiche</address>
+    <blockquote cite="https://www.wikipedia.org">tag che racchiude una citazione con relativo riferimento</blockquote>
+
+    <!-- caratteri speciali 
+    si apre con & e si chiude con ;-->
+    <p>3 è &lt; di 4</p> <!-- &lt; viene usato al posto del minore -->
+    <p>4 è &gt; di 3</p> <!-- maggiore -->
+    <p>html &amp; css</p> <!-- e commerciale -->
+    <p>&quot; Questo è il doppio apice</p> 
+    <p>&apos; questo è l'apice singolo</p>
+    <p> questi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sono gli spazi bianchi</p>
+    <p>&euro; euro, &copy; copy, &reg; trademark</p>
+        <p>
+    <a href="https://www.html.am/reference/html-special-characters.cfm">lista caratteri speciali</a>
+        </p>
+    <!--elementi di blocco vanno automaticamente a capo-->
+    <!--elementi inline automaticamente uno accanto all'altro-->
+    
+    <span>Inserisco un testo</span>
+    <span>Inserisco un altro testo</span>
+    <p>In questo bel paragrafo metto <b>quattro parole in grassetto</b> a scopo estetico.
+        Esiste anche un <strong>altro modo</strong> di fare i grassetti.<br><!-- br manda a capo, è un altro tag empty-->
+        Inoltre possiamo mettere una poarola in <i>corsivo</i> per fini estetici oppure perchè è un contenuto <em>importante</em><br>
+        Questi tag cosi descritti seguono le regola della w3c aggiornati al <del>2015</del> <ins>2023</ins>.
+    </p>
+
+    <!-- altri tag inline da usare dentro i paragrafi-->
+    <p>Questo è un paragrafo inserito in tag <abbr title="hyper text markup language">html</abbr>
+    grazie al tag <code>&lt;p&gt;</code>. Posso evidenziare contenuti grazie al tag <mark>mark</mark>. <br>
+    Posso inserire anche delle citazioni grazie anche al tag q <q>qui va la mia citazione, q sta per quotation</q><br>
+    un altro modo per inserire delle citazioni è con il tag <cite> inserisco la citazione</cite>
+    <!--blockquote citazione elemento di blocco, cite invece è un elemento in line-->
+    </p>
+
+    <!-- ulteriori ttag di formattazione-->
+    <p>Questo è un <pre>testo non formattato.</pre> Posso indicare dei tasti della tastiera <kbd>Premere ctrl</kbd>
+        oppure degli output <samp> f5 per aggioranre</samp>        
+    </p>
+
+    <hr><!-- horizzontal row è una riga orizzontale, tag empty non ha chiusura-->
+    <p>Quando parleremo di javascriprt impareremo a usare le <var>variabili</var><br>
+    se dovessimo fare dei testi matematici possiamo inserire degli <sup>apici</sup> o dei <sub>pendici</sub> </p>
+
+    <!------------------------------------ inserire immagine +++++++++++++++++++++++++++-->
+    <img src="img/mia_prima_immagine.webp" alt="immagine di snippet di codice" width="300">
+    <!-- img tag empty, src è attributo necessario e contiene il percorso dell'immagine 
+            alt è il testo alternativo 1.accessibilità 2. posizionamento 
+            width larghezza, perche no? 1. file alla dimensione esatta 2. responsive 
+        formati  possibili: jpg/jpeg, png/apng, gif, svg, webp, avif
+        se l'immagine fosse stata allo stesso livello dell'html scrivo src="mia_prima_immagine.webp"  
+    -->
+    <!--immagine esterna-->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/260px-HTML5_logo_and_wordmark.svg.png" alt="immagine logo html 5" width="300">
+    <!--tag semantici per le immagini-->
+    <figure>
+        <img src="img/mia_prima_immagine.webp" alt="porzione codice html" width="300">
+        <figcapture>Didascalia: foto di una porzione di codice html dal sito epicode</figcapture>
+    </figure>
+
+    <a href="secondo.html">Vai alla seconda pagina</a>
+
+</body>
+</html>
