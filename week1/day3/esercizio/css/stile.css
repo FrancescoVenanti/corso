@@ -1,0 +1,72 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    text-align:center;
+}
+
+
+.sottotitolo{
+    background-color: beige ;
+    color:rgb(31, 70, 129);
+    border-top:1px solid orange;
+    height:3em;
+    font-size:0.7em;
+}
+
+.descrizione{
+    text-align:left;
+}
+
+main{
+    width: 50%;  
+    margin: 0 auto;
+    text-align:center
+}
+
+h1{
+    text-indent: 2em;
+    line-height:0.5;
+}
+
+figure{
+    margin:0 auto;
+    border:5;
+}
+
+figure img{
+    border-radius: 10px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.300);
+
+}
+
+aside {    
+    text-align:left;
+    padding-left:1em;
+    border-left:1px solid orange;
+}
+
+aside p{
+    color:orangered;
+}
+
+
+hr{
+    border-color:aqua;
+}
+
+.ricetta{
+    text-align:left;
+}
+
+.read_more{
+    text-align: left;
+}
+
+a{
+    color:rgb(6, 88, 88);
+}
+
+
+
