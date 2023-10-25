@@ -1,0 +1,55 @@
+#contenitore {
+    width: 1024px;
+    border:1px solid #000;
+    margin: 0 auto;
+    /* margin esterno al contenitore, padding la distanza tra contenitore e contenuto */
+    /* 1 valore -> su tutti e 4 i lati 
+       2 valori -> 1ò sopra&sotto 2ò destra&sinistra
+       3 valori -> 1ò sopra 2ò destra&sinistra 3ò sotto
+       4 valori -> top right bottom left
+       margin-top: 20px
+    */
+}
+/*+++++++++++++++++++ Header ++++++++++++++++++*/
+header {
+    background-color: gray;
+    padding: 2em;
+    text-align: center;
+}
+header h1 {margin: 0; color:blueviolet;}
+
+/*+++++++++++++++++++ nav ++++++++++++++++++*/
+nav {
+    background-color: aquamarine;
+    padding: 1em;
+    height: 50px;
+}
+nav ul {
+    list-style-type: none;
+}
+nav li {
+    float:left;
+    width: 20%;
+    text-align: center;
+}
+nav a {color:#f00; text-decoration: none; display: block;} 
+/* text-decoration toglie sottolineatura, display:block comportati da elemento block (non inline) */
+nav a:hover {text-decoration: underline; color:#00f}
+/* : indica uno stato -> comportamento del link al mouseover*/
+
+/* +++++++++++++++ parte centrale ++++++++++++++ */
+
+main {float:left; width: 60%; border:1px solid #f00} 
+/* aside {float: right; width:300px;} non va perché l'elemento che ha float deve essere sempre il primo dei due che si affiancano
+2à cosa importante di float -> i tag con float è come se non avessero altezza (non contribuiscono all'altezza della pagina) */
+aside {margin-left:71%}
+aside img {border-radius: 20px;}
+article p {text-align: justify;}
+
+/* +++++++++++++++ footer ++++++++++++++ */
+
+footer {
+    background-color: gray; 
+    text-align: center; 
+    border-bottom:4px solid #f00 /* solid oppure dotted, dashed, double */
+}

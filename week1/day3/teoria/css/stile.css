@@ -1,0 +1,24 @@
+/* commento css /*
+/* sintassis base - selettore {proprietà:valore;} */
+
+*{font-style: italic;} /*selettore universale*/
+p{font-size:20px;} /*selettore base (tag) */
+ul, ol{margin-left:30px;}  /* con la virgola raggruppo i selettori*/
+p strong{font-size:22px;} /*selettore discendente: solo tag strong contenuti in un tag p*/
+h1{
+    font-family: 'Courier New', 'Courier', monospace;
+    text-align:center;
+    
+}
+
+#titolo_principale{
+    color:aquamarine;
+    line-height: 40px;
+    font-size:32px;
+}
+
+.autore{color:gray;}
+
+.corsivo{font-style:italic;}
+
+.maiuscolo{text-transform: uppercase;}

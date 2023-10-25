@@ -1,0 +1,80 @@
+#contenitore_principale{
+    width:1024px;
+    border:1px solid #000;
+    margin: 0 auto; 
+    /* margin è esterno al contenitore, padding è la distanza tra contenitore e contenuto */
+    /* se uso un valore è su tutti e 4 i lati 
+        due valori il primo è sopra e sotto, il secondo è dx sx
+        tre valori primo è sopra, secondo è dx sx, il terzo è sotto
+        quattro valori: top right bottom left
+        margin top: 20px;
+    s*/
+}
+
+/*-------------header-------------*/
+header {
+    background-color: gray;
+    padding: 2em;
+    text-align:center;
+}
+
+header h1{
+    margin:0;
+    color:orange;
+}
+
+/*--------------------nav------------*/
+nav{
+    background-color: aquamarine;
+    padding:1em;
+}
+
+nav ul{
+    list-style-type: none;
+}
+
+nav li{
+    float:left;
+    width:20%;
+    text-align:center;
+}
+
+nav a{
+    color:#f00;
+    text-decoration:none; /* toglie la sottolineatura */
+    display:block; /* comportati da elemento block */
+}
+
+nav a:hover{
+    /* stato di hover */
+    text-decoration:underline;
+    color:#00f;
+}
+
+/* --------------parte centrale ------------ */
+
+main {
+    border:1px solid #f00;
+    float:left;
+    width:50%;
+}
+/*aside{ float:right;width:300px;} non funziona perche l'elemento che ha float deve essere sempre il primo dei due
+i tag con float è come se non avessero altezza (non contribuiscono all'altezza della pagina)*/
+
+aside {
+    margin-left:50%;
+}
+
+aside img{border-radius:20px;}
+
+article p{
+    text-align: justify;
+}
+
+/* -------------- footer ------------ */
+
+footer{
+    background-color: gray;
+    text-align: center;
+    border-bottom:4px solid red;
+}

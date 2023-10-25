@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta description="">
+    <title>Primo file CSS</title>
+
+    <style>
+        /* qui dentro vige la sintassi css */
+        h1 {color: blue; text-align: center;}
+        p {font-size:20px;}
+        p strong {color:brown;}
+        /* css incorporato è sconsigliat, da usare in caso di eccezioni */ 
+    </style>
+
+    <link rel="stylesheet" href="css/stile.css">
+    <!-- css esterno è il metodo raccomandato 
+        1. separa contenuto da formattazione
+        2. non grava sul peso dell'html
+        3. ci permette di intervenire simultaneamente su tutti i file
+        4. ci da la possibilità di controllare con la media-query le instruzioni sui vari device
+    -->
+
+</head>
+<body>
+
+    <h1 style="color: blue; text-align: center;">Titolo principale</h1>
+    <p style="font-size:20px;">Testo della pagina con <strong style="color:brown;">elemento evidenziato</strong></p>
+    <!-- css inline è una metodologia deprecata:
+        1. è buona norma separare contenuto e formattazione
+        2. il peso della nostra pagina html aumenterebbe molto
+        3. molto poco razionale dover intervenire su ogni riga di codice per fare le modifiche 
+        4. posizionamento: le keyword vengono annacquate nel codice 
+        5. compatibilità cross-device: quando avrò le media-query l'istruzione inline sarebbe sempre la più vicina
+    -->
+
+    <!--
+        id e classi 
+        id identifica in modo univoco un elemento html, può esserci solo una volta 
+            nel css si formatta con #valoreID
+
+        class serve per selezionare più elementi 
+            nel css si formatta con .valoreClasse
+    -->
+
+    <!-- priorità nel css
+        1. priorità a cascata (le dichiarazioni inline sono più prossime quindi comandano sulle altre)
+        2. priorità specifica (l'ultima dichiarazione sovrascrive la precedente)
+        3. priorità gerarchica: stili inline (1000 punti) > id(100 punti) > class(10 punti)
+    -->
+    
+    <h1 id="titolo_principale">Titolo con id</h1>
+    <p class="autore">Federico De Ambrosis</p>
+    <p class="autore corsivo">Pinco panco</p>   
+    <p class="autore corsivo maiuscolo">Panco Pinco</p>
+
+
+</body>
+</html>

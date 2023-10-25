@@ -1,0 +1,55 @@
+/*unità di misura*/
+
+p{font-size:30px;} /*esiste pt*/
+p{font-size:1em;} /*proporzionale rispetto all'elemento parent*/
+p{font-size:1.1rem;} /*proporzionale rispetto alla root*/
+
+div{width:50%; margin-left:25%;}
+
+/* vw viewport width(proporzionale alla larghezza del device)
+    vh viewport height (proporzionale alla larghezza del device) 50vh alto come la metà del la viewport del device
+*/
+/*
+p{font-size:90%} valore base è 16px, il 90% è 14.4px
+p{font-size:0.9em} sempre 14.4px
+p{font-size:0.9rem}
+p{font-size:0.9vw} viewport1400 (quindi 0.9*1400)
+*/
+
+/* colori */
+article p{color:blueviolet;} /* keyword */
+article p{color:#ff0000;} /*esadecimale r g b */
+article p{color:#f00;} /* esadecimale sintetico (solo se tutte e tre le coppie hanno gli stessi valori */
+article p {color:#0f0;}
+article p {color:#00f;}
+article p {color:rgb(0,0,255, 0.5);} /* r g b + opacità->valori rgb + 4° valore alpha che gestisce l'opacità */
+
+/*font */
+section p{font-family:'Courier New', Courier, monospace;}
+section p{font-family: 'Roboto', sans-serif;}
+
+/* formattazione di testi */
+#secondo{
+    font-size: 1.1em;
+    font-style: italic; /* corsivo */
+    font-weight: bold;  /* grassetto */
+    line-height:1.5; /* interlinea valori da 0 in su */   
+}
+
+div p{
+    color:#f00;
+    text-align:center;
+    text-indent: 2em; /* indentatura */
+    text-transform: uppercase; /* tutto maiuscolo */
+}
+
+div h1{
+    text-shadow:5px 5px 10px #0f0;
+    /* 
+    1 valore scostamento orizzontale
+    1 valore scostamento verticale
+    3 valore raggio della sfocatura
+    ----4 valore spread ombra
+    5 valore colore
+    */
+}
