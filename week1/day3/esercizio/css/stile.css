@@ -20,7 +20,7 @@ header{
 }
 
 main{
-    width: 50%;  
+    width: 800px;  
     margin: 0 auto;
     text-align:center
 }
@@ -38,13 +38,19 @@ figure{
 figure img{
     border-radius: 10px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.300);
+    margin-bottom:20px;
 
+}
+
+figcaption{
+    color:grey;
 }
 
 aside {    
     text-align:left;
     padding-left:1em;
     border-left:1px solid orange;
+    margin:0;
 }
 
 aside p{
