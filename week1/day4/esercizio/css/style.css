@@ -1,0 +1,199 @@
+/* IMPOSTAZIONI GENERALI */
+body{
+    text-align:center;
+    font-family: 'Poppins', sans-serif;
+    background-image: url(../img/sfondo.png);
+}
+
+#sfondo_bianco{
+    background-color:white;
+    padding:20px;
+    box-shadow: 3px 3px 10px black;
+    border:20px ;
+    padding:20px;
+    margin:20px;
+}
+
+
+a{text-decoration:none;}
+
+#sfondo{
+    width:40%;
+    margin:0 auto;
+}
+
+p{
+    font-size:1.2em;margin:5px 20px 5px 20px;
+    
+}
+
+
+
+
+/* HEADER */
+header{
+    border:20px ;
+    padding:20px;
+    margin:20px;
+    background-image: linear-gradient(rgb(11, 158, 184), rgb(6, 100, 163));
+    color:white;
+    box-shadow: 3px 3px 10px black;
+} 
+
+header a{
+    color:white;
+}
+
+nav{
+    margin-top:20px;
+}
+
+h2{
+    font-size:1.8em;
+    margin:20px;
+    padding:10px;
+}
+
+#epicode{
+    margin:30px;
+}
+
+/* MAIN */
+
+main{
+    border:20px ;
+    text-align:left;
+}
+
+ul{
+    list-style-type: disc;
+    margin:20px;
+    margin-left:40px;
+
+}
+
+ol {
+    list-style-type:decimal;
+    margin:20px;
+    margin-left:40px;
+    
+}
+
+h1{font-size:3em; margin: 30px 0 30px 10px;}
+#autore{color:grey; margin:30px 20px 20px 20px;}
+
+.video a{
+    text-decoration:underline;
+    color:aqua;
+}
+
+iframe{
+    margin:0 auto;
+}
+
+/* ELEMENTI NEL MAIN - ARTICLE */
+
+
+.evidenziati{
+        color:rgb(110, 7, 76) ;
+        font-weight: 600;
+}
+
+hr{
+    border-color:blue;
+    margin:30px;
+}
+
+video{
+    display:block;
+    margin: 0 auto;
+    border-radius:20px;
+}
+
+/* TABELLE */
+table{
+    margin:auto;
+    text-align:center;
+}
+th{
+    background-color: blue;
+    color:white;
+    padding:20px;
+}
+
+td{
+    padding:20px;
+    text-align:center;
+}
+
+tr:nth-child(odd){
+    background-color: #f2f2f2;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+}
+
+
+#titolo_tab{
+    font-weight:800;
+    text-align:center;
+    margin:10px;
+}
+
+/* FORM */
+form{
+    margin:20px;
+    background-color: rgb(170, 170, 170);
+    
+    text-align:left;
+}
+
+form h2{
+    text-align:center;
+}
+
+input{
+    margin:20px 3px 20px 20px;
+}
+
+input[type=email]{
+        border:0;
+        border-bottom:1px dashed;
+        
+}
+
+input[type=submit]{
+    background-color:blue;
+    color:white;
+    border:0;
+    margin:0;
+}
+
+/* ELEMENTI NELL' ASIDE */
+
+aside h2{
+    text-align:center;
+}
+
+.correlati{
+    background-color:rgb(170, 170, 170);
+    margin:20px;
+    padding:10px;
+    text-align:left;
+}
+
+.correlati a{
+    margin:20px;
+}
+
+.data{
+    text-align:right;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    color:white;
+    background-image:linear-gradient(rgb(5, 75, 65), rgb(1, 27, 12));
+    margin:20px;
+}

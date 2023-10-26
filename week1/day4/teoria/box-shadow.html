@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box-shadow</title>
+
+    <style>
+
+        #esempio1, #esempio2, #esempio3{width:200px; margin:30px; padding:10px; border:1px solid black;}
+
+        #esempio1{box-shadow: 5px 10px;} 
+
+        #esempio2{box-shadow: 5px 20px 10px aquamarine;} /* terzo valore sfocatura, quarto valore colore */
+
+        #esempio3{background-image: url(img/mia_prima_immagine.webp); color:white;}
+        /* Per gestire l'immagine di sfondo rispetto al contenitore la proprietà css si chiama background-size
+                contain | cover (fare resize e occupare tutto il contenitore) 
+            background-repeat : repeat | no repeat
+            l'immagine di sfondo si adatta alla dimensione del div (se il div è alto zero non la vedo)
+        */
+
+        /* +++++++++++++++++++++++++ opacità +++++++++++++++++++ */
+        img{width:300px; opacity:0.5;} /* opacity ha valori da 0 a 1. 0 trasparente e 1 immagine piena. */
+        img:hover{opacity:1;}
+
+        .first, .second, .third, .fourth{background-color:green; padding:10px; margin:0; width:200px;}
+        .first{opacity:0.3}
+        .second{opacity:0.6;}
+        .third{opacity:0.8}
+        /* opacity:1 è il calore di default */
+        /* opacity cambia sia background che foreground, e se voglio cambiare solo lo sfondo?
+            background:rgba(1,1,1, 0.3) -> tre valori rbg e il quartyo valore canale alpha -> cosi gestisco solo lo sfondo
+        */
+    </style>
+
+</head>
+<body>
+
+    <h2>Proprietà box shadow</h2> 
+
+    <div id="esempio1">
+        Un div con l'ombra, primo valore scostamento orizzontale secondo quello verticale
+    </div>
+
+    <div id="esempio2">
+        un div con l'ombra colorata (quarto valore) e una sfocatura (terzo valore)
+    </div>
+
+    <h2>background-image</h2>
+
+    <div id="esempio3">Questo è un div con lo sfondo. ma se non metto contenuto la sua altezza è zero!</div>
+
+    <!-- opacità -->
+    <img src="img/mia_prima_immagine.webp" alt="codice">
+
+    <div  class="first">molta opacità</div>
+    <div  class="second">media opacità</div>
+    <div  class="third">poca opacità</div>
+    <div  class="fourth">nessuna opacità</div>
+
+    
+</body>
+</html>

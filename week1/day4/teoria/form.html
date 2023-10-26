@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+
+    <style>
+
+        label{display:block;}
+
+        input[type=text]:disabled{background-color: #ddd;}
+        input[type=text]:enabled{background-color: aquamarine;}
+        input:checked{margin-left:50px;}
+        input:in-range{border:2px solid green; background-color: green;}
+        input:out-of-range{border: 2px solid red; background-color: red;}
+        input:required{border:3px solid red;}
+        input[type="email"]:valid{background-color: green; border:green;}
+        input[type="email"]:invalid{background-color: red; border:red;}
+        
+
+
+    </style>
+
+</head>
+<body>
+
+    <form  action="#" method="#">
+
+        <label>Nome</label>
+        <input type="text" placeholder="nome"><br>
+
+        <label>Cognome</label>
+        <input type="text" placeholder="cognome"><br>
+
+        <label>Punteggio</label>
+        <input type="text" disabled placeholder="99"><br>
+
+        <label>Privacy</label>
+        <input type="checkbox" name="checkboox" checked>Ho letto la normativa della privacy
+
+        <label>età</label>
+        <input type="radio" value="20-30" name="eta">Ho tra 20 e 30 anni<br>
+        <input type="radio" value="30 40" name="eta">Ho tra 30 e 40 anni<br>
+        <input type="radio" value="40 50" name="eta">Ho tra 40 e 50 anni<br>
+
+        <hr>
+
+        <input type="number" min="18" max="40" value="20"><br>
+
+        <input type="text" required placeholder="required"><br>
+
+        <input type="email" value="supprot@epicode.it"> <br><!-- se uso type email posso verificare che sia valid. controllo che ci sia scritto qualcosa@qualcosa.qualcosa-->
+
+        <input type="submit">
+
+    </form>
+    
+</body>
+</html>

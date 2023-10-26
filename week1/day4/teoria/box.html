@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+<style>
+
+    #rosso, #verde{
+        width: 200px;
+        height:50px;
+        margin:30px;
+        border: 1px solid black;
+    }
+
+    #rosso{
+        background-color: red;
+        border:5px dotted blue;
+        outline: 10px solid yellow; /* outline è fuori dal bordo */
+        /* border e outline -> solid dotter dashed double (inset outset groove) */
+    }
+
+    #verde{
+        background-color: green;
+         padding: 30px; /* quando aggiungo il padding si somma */
+        box-sizing: border-box; /* con border-box il padding non si somma più */
+                                /* content-box invece è il valore di default (il padding si somma) */
+    } 
+    /* box model 1.contenuto 2.padding (area tra contenuto e contenitore) 3.border 4.margin (area fguori dal bordo) */
+
+</style>
+
+</head>
+<body>
+
+    <div id="rosso">Questo div ha dimensione 200px x 50 px</div>
+
+    <div id="verde">Questo div ha dimensione 200px x 50 px</div>
+    
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow</title>
+
+    <style>
+
+        div.ex1, div.ex2, div.ex3, div.ex4{
+            background-color: aquamarine;
+            width: 110px;
+            height:110px;
+        }
+        div.ex1{overflow: scroll; /* aggiunge una scrollbar */}
+        div.ex2{overflow:hidden;} /* nasconde il contenuto in eccesso */
+        div.ex3{overflow:auto;} /* se c'è contenuto in più aggiunge una scrollbar */
+        div.ex4{overflow:visible}/* valore di default, il testo è tutto visibile anche se eccede */
+
+        /* word-break */
+        p{width:120px; border:1px solid black;}
+        .uno{word-break:normal; } /* la parola eccede il contenitore */
+        .due{word-break:keep-all} /* la parola va acapo solo con i trattini */
+        .tre{word-break: break-all;} /* va a capo sempre */
+        /* word-wrap ha la stessa funzione: 
+                    normal di default non spezza
+                    break-word spezza la parola che eccede
+        */
+
+    </style>
+
+</head>
+<body>
+
+    <h1>Proprietà overflow</h1>
+
+    <h2>Overflow scroll</h2>
+    <div class="ex1">
+        Lorem, ipsum dolpedit esse enim. Modi debitis qui quaerat animi repellendus perferendis molestias impedit praesentium vel quam vitae tempore, voluptates quibusdam consequatur ea odio iure? Nulla sapiente repellendus dolorum obcaecati repudiandae.
+    </div>
+
+    <h2>Overflow hidden</h2>
+    <div class="ex2">
+        Lorem, ipsum dolpedit esse enim. Modi debitis qui quaerat animi repellendus perferendis molestias impedit praesentium vel quam vitae tempore, voluptates quibusdam consequatur ea odio iure? Nulla sapiente repellendus dolorum obcaecati repudiandae.
+    </div>
+
+    <h2>Overflow auto</h2>
+    <div class="ex3">
+        Lorem, ipsum dolpedit esse enim. Modi debitis qui quaerat animi repellendus perferendis molestias impedit praesentium vel quam vitae tempore, voluptates quibusdam consequatur ea odio iure? Nulla sapiente repellendus dolorum obcaecati repudiandae.
+    </div>
+
+    <h2>Overflow visible</h2>
+    <div class="ex4">
+        Lorem, ipsum dolpedit esse enim. Modi debitis qui quaerat animi repellendus perferendis molestias impedit praesentium vel quam vitae tempore, voluptates quibusdam consequatur ea odio iure? Nulla sapiente repellendus dolorum obcaecati repudiandae.
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <h1>Word-break</h1> 
+    <p class="uno">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa è la parola più lunga dell'alfabeto italiano</p>
+
+    <p class="due">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa è la-parola-più-lunga-dell'alfabeto italiano</p>
+
+    <p class="tre">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa è la parola più lunga dell'alfabeto italiano</p>
+    
+</body>
+</html>
