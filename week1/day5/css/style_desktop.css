@@ -1,0 +1,156 @@
+/* Generali */
+
+body { 
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.65;
+    color:#393d41;
+    text-align:center;
+    margin:0;
+}
+/* * {box-sizing: border-box;} */
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Montserrat', sans-serif;
+    color:#25a2c3;
+    line-height:1.5;
+}
+
+h1{
+    font-size:3rem;
+    padding-top:1em;
+    line-height:1;
+}
+
+p{
+    margin:1em 1em;
+}
+
+/* header */
+
+header{
+    background-color:black;
+    padding: 1em 2em;
+    text-align:left;
+}
+
+/* main */
+
+#incipit{
+    background-image:url(../images/banner.jpg);
+    background-size:cover;
+    padding:7em;
+
+}
+
+button{
+    background-color:#f04c2f;
+    font-family:'Montserrat', sans-serif;
+    color:white;
+    font-style:bold;
+    text-transform:uppercase;
+    border:none;
+    margin-bottom:1.5em;
+    border-radius:3px;
+    padding:1em;
+    font-size:1.2rem;
+}
+
+h3{
+    font-size:1.4rem;
+
+}
+
+h3:first-child{
+    margin-top:3em;
+}
+
+article{
+    padding:3em;
+    text-align:left;
+}
+
+article img{
+    border-radius:50%;
+    float:left;
+    margin:3em 5em 7em 5em;
+}
+
+article p{
+    margin-top:0.5em;
+    margin-bottom:2em;
+}
+
+#testo_principale{
+    margin:5em;
+}
+
+/* section */
+
+section {
+    background-color:red;
+    color:white;
+    padding:1em;
+    margin-top:1em;
+}
+
+h2{
+    color:white;
+    font-size:1.8em;
+    margin-top:1em;
+}
+
+#name{font-size:1em; margin-bottom:0}
+
+section p:last-child{margin-top:0; font-size:0.5em;}
+
+/* steps */
+
+.steps{
+    font-size:80%;
+    width:30%;
+    height:70%;
+    border:1px solid  #dee1e3;
+    float:left;
+    margin-top:150px;
+    margin-left:40px;
+}
+
+.steps img{object-fit: cover;}
+
+#risorse{
+    height:750px;
+    max-width: 100%;
+}
+
+
+/* footer */
+
+footer{
+    background-color:#25a2c3;
+    color: #c8e7f0;
+    padding:2em;  
+}
+
+footer h2{
+    margin:0 0 0.5em 0;
+}
+
+footer a{
+    color: #c8e7f0;
+}
+
+
+#indirizzo{
+    padding-bottom:1em;
+    border-bottom:2px solid white;
+}
+
+#footer{
+    width:400px;
+    text-align: left;
+    margin:auto;
+}
+
+
+

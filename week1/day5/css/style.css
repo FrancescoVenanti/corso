@@ -1,0 +1,126 @@
+/* Your styles here */
+
+/* Generali */
+
+body { 
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.65;
+    color:#393d41;
+    text-align:center;
+    margin:0;
+}
+/* * {box-sizing: border-box;} */
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Montserrat', sans-serif;
+    color:#25a2c3;
+    line-height:1.5;
+}
+
+h1{
+    font-size:3rem;
+    padding-top:1em;
+    line-height:1;
+}
+
+p{
+    margin:1em 1em;
+}
+
+/* header */
+
+header{
+    background-color:black;
+    padding: 2em 1.5em;
+}
+
+/* main */
+
+#incipit{
+    background-image:url(../images/banner.jpg);
+    background-size:cover;
+
+}
+
+
+button{
+    background-color:#f04c2f;
+    font-family:'Montserrat', sans-serif;
+    color:white;
+    font-style:bold;
+    text-transform:uppercase;
+    border:none;
+    margin-bottom:1.5em;
+    border-radius:3px;
+    padding:1em;
+    font-size:1.2rem;
+}
+
+h3{
+    font-size:1.4rem;
+}
+
+h3:first-child{
+    margin-top:3em;
+}
+
+article img{
+    border-radius:50%;
+    margin:1em;
+}
+
+
+/* section */
+
+section {
+    background-color:red;
+    color:white;
+    padding:1em;
+    margin-top:1em;
+}
+
+h2{
+    color:white;
+    font-size:1.8em;
+    margin-top:1em;
+}
+
+#name{font-size:1.3em; margin-bottom:0}
+
+section p:last-child{margin-top:0;}
+
+/* steps */
+
+.steps{
+    font-size:80%;
+    width:90%;
+    border:1px solid  #dee1e3;
+    margin:1em auto;
+}
+
+.steps:last-child{margin-bottom:2em}
+
+
+/* footer */
+
+footer{
+    background-color:#25a2c3;
+    color: #c8e7f0;
+    padding:2em;
+}
+
+footer h2{
+    margin:0 0 0.5em 0;
+}
+
+footer a{
+    color: #c8e7f0;
+}
+
+footer hr{
+    margin:1em 100px;
+}
+
+
+
