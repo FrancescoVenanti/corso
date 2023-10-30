@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipi di dati</title>
+</head>
+<body>
+
+    <h2>Tipi di dati</h2>
+    <p>Javascript prevede 5 tipi di dati <strong>primitivi</strong>: numeri, stringhe, booleani, null e undefined<br>
+    e un tipo di dato <strong>complesso</strong>: gli oggetti</p>
+    <p>Qualsiasi altro elemento previsto dal linguaggio (array funzioni ...) sono tipi di dato oggetto.</p>
+    <p>Negli oggettoi noi possiamo inserire proprietà (attributo valore) ma anche metodi(funzioni)</p>
+    <br>
+
+    <h3>tipo di dato: stringa</h3>
+    <p>è una sequenza di caratteri delimitata da apici doppi o singoli<br>
+    "questa è una stringa" - 'questa è una stringa' -> non c'è una regola per quale delimitatire usare<br>
+    unica regola: delimitatore iniziale uguale al delimitatore finale<br>
+    "l'altro ieri" - "questa è una 'stringa'"<br>
+    esiste anche la stringa vuota "" ''<br>
+    per inserire caratteri speciali in una stringa -> \<br>
+    "ieri c'era il sole.\nOggi piove -> \n inserisce un ritorno a capo<br>
+    'l\'altro ieri' - "questa è una \"stringa\"" -> il delimitatore preceduto da \ si considera come carattere normale
+    </p>
+    <br>
+
+    <h3>Tipo di dato numerico</h3>
+    <p>Senza apici. Esiste un solo tipo di dato numerico per tutto (interi, decimali, negativi)</p>
+    <script>
+        var interoPositivo = 123; //niente apici
+        var zero = 0;
+        var interoNegativo = -120; //intero negativo
+        var numeroDecimale = 0.234; //il punto fa da separatore per la parte decimale
+        var altroDecimale = -12.34; //decimale negativo
+        //NaN not a number -> è un valore speciale di js che indica un valore numerico non definito
+    </script>
+    <p><b>JS è un linguaggio a tipizzazione debole, non c'è nessun controllo sul tipo di dato memorizzato</b></p>
+    <br>
+
+    <h3>Tipo di dato booleano</h3>
+    <p>ha solo due valori possibili: true | false</p>
+    <br>
+
+    <h3>Tipo di dato null</h3>
+    <p>Prevede un solo valore possibile: null -> non rientra nei precedenti tipi di dato</p>
+    <script>
+        var x = null; //null non è 0, ne una stringa vuota
+    </script>
+    <br>
+
+    <h3>Tipo  di dato undefined</h3>
+    <p>Prevede un solo valore: undefined. Rappresenta un valore che non esiste. Non ha assegnato nessun valore (nemmeno null)</p>
+    <script>
+        var miaVariabile; //undefined
+        var miaVariabile = 1; //tipo di dato numerico
+        var miaVariabile = null; //posso riscrivere perchè la tipizzazione in js è debole quindi posso cambiare tipo di dato
+        var miaVariabile ='pippo';
+        var miaVariabile = true; //ultimo -> valore assegnato
+    </script>
+    
+</body>
+</html>

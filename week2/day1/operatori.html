@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operatori</title>
+</head>
+<body>
+    
+    <h2>Operatori</h2>
+    <p>Tramite gli operatori posso combinare valori, variabili tra di loro</p>
+    <script>
+       // x + 1;  //espressione che combina la variabile x con il valore 1 tramite l'operatore +
+                //ottiene l'incremento di un'unità di x
+    </script>
+    <p> Gli operatori determinano il risultato di un'operazione</p>
+    <p>Classificazione degli operatori in base al numero di valori che possono combinare: unari, binari, ternari</p>
+    <h2>Operatori aritmetici</h2>
+    <p>operatori binari perchè combinano due valori numerici
+        + addizione
+        - sottrazione
+        / divisione
+        * moltiplicazione
+        % modulo o resto
+        esempi:
+        9/4
+        x + 10
+        3 * 2
+        e seguono  le regole delle precedenze matematiche e come  in matematica posso usare le parentesi ()
+        4 + 5 * 6 + 7 = 41
+        (4+5) * (6 + 7) = 117
+    </p>
+
+    <p>operatori aritmetici possono anche essere unari, cioè combinano solo un numero</p>
+        ++ incremento
+        --  decremento
+        - negazione -> x=5; -> -x; = -5;
+
+        -> incremento e decremento  li posso applicare solo a delle variabili 
+        -> è molto importante la posizione dell'operatore 
+        -> se l'operatore è a sinistra dell'operando l'operazione viene eseguita prima di valutare l'espressione
+        -> se l'operatore è a destra viene eseguita dopo
+    
+    <script>
+        var x = 3;
+        var y = ++x;    //a sx -> valuto prima l'espressione -> x viene incrementaa di uno e il risultato assegnato a y
+                        // x=4  y=4
+        
+        var x = 3;
+        var y = x++;    //è a dx -> valuto dopo -> x viene assegnata a y e dopo viene incrementata
+                        //x=4 e y=3
+    </script>
+
+    <h3>Operatori logici</h3>
+    <p>Consentono di cmobinare espressioni booleane (true|false)</p>
+    && -> operatore binario -> and
+    || ->                   -> or
+    ! -> operatore unario -> not
+    5 > 2 && 3 != 4 // true
+    !5 === 5 // false
+
+    =   -> assegnamento -> x=3+5;
+    ==  -> uguale
+    |=  ->diverso
+    === -> strettamente uguale ->uguale sia nel valore che nel tipo di dato
+        -> esempio: 5 e "5" sono uguali nel valore ma non nel tipo di dato -> non sono strettamente uguali
+
+    
+    <h3>Opoeratore ternario</h3>
+    <p>Permette di combinare 3 dati tra di loro. Restituisce un valore in base a un'espressione booleana</p>
+    <p>Sintassi: condizione ? valore 1:  valore2<br>
+        verifico se la condizione è vera (true|false) se è vera viene restituito il primo valore altrimenti il secondo
+    </p>
+
+    <script>
+        var utenteAbilitato = false;
+        (utenteAbilitato) ? console.log("utente abilitato") : console.log("untente disabilitato");
+        //verifico il  valore di utenteAbilitato
+        //se è true restituisco il primo valore dopo ?
+        //se è falso restituisco il secondo valore (quello dopo :)
+    </script>
+
+    <h2>Operatori relazionali</h2>
+    <p>Operatori utilizzati per fare un confronto tra più valori</p>
+    <table>
+        <tr><th>Operatore</th><th>Nome</th></tr>
+        <tr><td>&lt; </td><td>minore</td></tr>
+        <tr><td>&gt; </td><td>maggiore</td></tr>
+        <tr><td><=</td><td>minoreo uguale</td></tr>
+        <tr><td>>=</td><td>magiore o uguale</td></tr>
+        <tr><td>==</td><td>uguale</td></tr>
+        <tr><td>!=</td><td>diverso</td></tr>
+        <tr><td>===</td><td>strettamente uguale</td></tr>
+        <tr><td>!==</td><td>strettamente diverso</td></tr>
+    </table>
+
+    <p>Queste espressione restituiscono unb valore booleano (true|false)</p>
+    <script>
+        4 > 2 //true
+        5 != 4 + 1 //false
+    </script>
+
+    <h3>Operatori su stringhe</h3>
+    <p>Operatore di concatenaazione (+) -> crea una nuova stringa come risultato della concatenazione di due stringhe</p>
+    <script>
+        "piano" + "forte" //"pianoforte"
+        //forma compatta
+        var strumento = "piano";
+        strumento += "forte"; // strumento = "pianoforte"
+
+        //operatore assegnazione
+        let a = 2;
+        let b = "hello";
+        console.log((a += 3));       //addizione risultato atteso 5
+        console.log((b += " world")) //concatenazione risultato atteso hello world
+
+        //typeof
+        console.log(typeof 42); //risultato atteso -> number
+        console.log(typeof "pippo"); //risultato atteso -> string
+        console.log(typeof true); //risultato atteso boolean
+        console.log(typeof a);
+    </script>
+    
+
+
+</body>
+</html>

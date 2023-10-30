@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primo file js</title>
+</head>
+<body>
+    
+    <!-- Come inserire javascript in una pagina -->
+    <h2>Inserisco codice inline</h2>
+    <p>Posso inserire direttamente le ist5ruzioni javascript in un elemento HTML, 
+        assegnandolo ad un attributo che rappresenta un evento
+    </p>
+
+    <button type="button" onclick="alert('ciao')">Cliccami</button>
+    <!-- 
+        abbiamo assegnato a questo attributo onclick dell'elemento button la stringa alert('ciao')
+        l'attributo onclick rappresenta l'evento ddel click sul pulsante
+        quidni in corrispondenza dell'evento si analizza il codice javascript assegnato 
+        in questo caso alert è una keyword che mostra un box con la scritta ciao
+    -->
+
+    <p>Altro approccio  per inserire codice inline, ma è valido solo per i link</p>
+    <a href="javascript:alert('ciao')">Cliccami</a>
+    <!-- In questo caso indichiamo al browser di interpretare il link come la richiesta di esecuzione del codice javascript specificato
+        non apro il link ma eseguo il codice
+    -->
+
+    <h2>Inserisco blocchi di codice</h2>
+
+    <p><strong>Pro</strong>:nel caso di poco codice javascript metto in relazione subito html e js</p>
+
+    <p><strong>Contro</strong>: nel caso il codice sia minimamente complesso (variabil, funzioni, oggetti) non risulta comodo</p>
+    
+    <!-- <script>alert('ciao')</script> -->
+    <!-- Il parser html del browser esamina la pagina, riconosce il tag <script> e passa il contenuto all'engine js che lo esegue -->
+    <p><code> Tag head o tag body</code> primo ordine di considerazione -> performance; <br>
+    secondo ordine di considerazioni -> che il rag su cui js interagisce sia già stato parsato (letto e quindi disponibile)<br>
+    -> questo spiega perche tante volte troviamo gli script in fonto alla pagina prima della chiusura di <code>&lt;body></code></p>
+
+    <h2>Inserisco javascript esterno</h2>
+    <p>Approccio più consigliato. consiste nel collegare a una pagina html uno script presente in un file esterno<br>
+    Il <strong>grande</strong> vantaggio di questo approccio è la separazione tra struttura e programmazione, tra cos'è un tag e cosa deve fare.</p>
+    <script src="js/scripts.js"></script> <!-- uso il percorso relativo come sempre + collagamento prima della chiusura di body -->
+
+    <!-- <script src="https://www.server.com/js/codice.js"></script> Posso collegare un file esterno -->
+
+    <!-- ++++++++++++++++++++ Console +++++++++++++++++++++ -->
+    <h2>Oggetto console</h2>
+    <p>La console è uno strumento fondamentale per scrivere codice javascript (per qualsiasi liunguaggio di programmazione)</p>
+    <p>La console ci permette di fare il debug, cioè ci permette di controllare il flusso del nostro codice</p>
+    <p>Spesso la console si usa per tenere traccia dell'evoluzione del programma o verificare dei valori</p>
+    <p>Per vedere la console -> ispeziona -> console </p>
+
+    <script>
+        //console.log("ciao mondo");
+        var a = 'pippo'; 
+        console.log('a è uguale a' +a); //con +a concateno una variabile
+
+        let numero1 = 5;
+        let numero2 = 7;
+        console.log(numero1 + numero2);
+        console.log(numero1 - numero2);
+        console.log(numero1 + numero2 - 12);
+    </script>
+    
+</body>
+</html>

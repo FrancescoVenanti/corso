@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variabili</title>
+</head>
+<body>
+    
+    <h2>Le variabili</h2>
+    <p>Servono per memorizzare dei valori</p>
+    <p>Ogni variabile sarà identificata da un nome che segue alcune regole: </p>
+    <ul>
+        <li>niente spazi e niente trattini -, niente caratteri speciali (? . ecc)</li>
+        <li>Deve iniziare con una lettera, sono ammessi anche underscore e dollaro</li>
+        <li>Sono case sensitive</li>
+        <li>Non può iniziare con un numero</li>
+        <li>Il nome della mia variabile non deve mai coincidere con le keyword del linguaggio (if, else, switch, return. true, false)</li>
+    </ul>
+
+    <script>
+        //esempi sulle regole di naming delle variabili
+        //keyword per memorizzare dei valori -> var, let, const
+        /*
+        var DeAmbrosis      ok
+        var De_Ambrosis     ok
+        var De Ambrosis     no perchè c'è lo spazio
+        var deAmbrosis      ok ma diverso da riga 26
+        var 1DeAmbrosis     no perchè inizia con un numero
+        var De.Ambrosis     no per trattino
+        var DeAmbrosis1     v
+        */
+    </script>
+
+    <h3>Dichiarazione implicita delle variabili</h3>
+    <p>Non è obbligatorio dichiarare le variabili, cioè fare un'operazione esplicita di creazione <br>
+    quando c'è l'identificatore = l'engine crea implicitamente la variabile se non esiste già</p>
+
+    <script>
+        var miaVariabile;
+        // dichiaro la variabile (possiamo nello stesso momento assegnargli un valore)
+        // quando dichiaro una variabile stabilisco uno scope
+        // scope è l'ambito in cui la variuabile è accessibile (in che punto del codice posso usare i valori memorizzati)
+        variabile = 3; // questa pratica può favorire errori e ambiguità
+        // una variabile non dichiarata si crea al primo utilizzo e è accessibile ovunque nello script
+        // sconsigliato quando il codice diventa complesso può succedere di usare punti diversi variabili con lo stesso nome
+        // --> genera compertamenti non previsti -> dichiariamo sempre una variabile con la sua keyword
+    </script>
+
+    <h3>Strict mode</h3>
+    <p>e' un'opzione di autocontrollo del codice, ecmaScript 5 -> se viene dichiarat lo script mode js viene eseguito osservando le regole di scrittura più strette
+        -> es. ci arriva segnalazione di errore se non dichiariamo le variabili 
+        mell'esecuzione normale js ci dà delle regole più permissive che se dichiariamo lo strict mode ci obbligano a uno stile di programmazione più strutturato
+    </p>
+    <script>
+        "use strict" //dicitura per abilitare lo strict mode
+    </script>
+    <h3>Var, let, const</h3>
+    <p>var è la prima keyword usata da js per definire una variabile, var è accessibile in qualunque parte del mio script (globale)</p>
+    <p>let introdotta da EcmaScript è accessibile solo in un determinato ambito (scope) che è delimitato da un blocco di codice</p>
+    <p>un blocco di codice js è una serie di istruzioni delimitate da { <code>.. blocco di codice ..</code> }</p>
+    <h4>const</h4>
+    <p>Introdotte da  EcmaScript6 -> servono a instruire l'engine che il valore assegnato con const non è modificabile</p>
+    <script>
+        const PIGRECO = 3.14;   //garantisce che quel valore non è modificabile ma è utilizzabile in sola lettura
+                                //la prassi vuole che si scriva in maiuscolo un valore non modificabile
+
+        //var pigreco = 3.14;   //modificabile.
+                                //la differenza sostanziale è che che con const non posso riassegnare valori
+        
+        const PI = 3.1423423423
+        //PI = 3.14; // errore
+        //PI = PI+10; //errore
+
+        var x = 10; //qui x è 10
+        {
+            const x = 2; //qui x è 2
+        }
+        //se richiamo x qui fuori sarà 10, perchè const come let valgono solo nel blocco di codice
+    </script>
+    
+
+</body>
+</html>
