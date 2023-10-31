@@ -32,12 +32,16 @@ if (num1%5 == 0){
 /* ESERCIZIO 4
   Scrivi un algoritmo per verificare che, dati due numeri interi, il valore di uno di essi sia 8 oppure se la loro addizione/sottrazione sia uguale a 8.
 */
-var diff = num1 - num2;
+/*var diff = num1 - num2;
 var somma = num1 + num2;
 if ((num1 == 8) || (num2==8) ){
   console.log("uno dei due e' uguale a 8");
-} else if((diff=8) || (somma = 8)) {
+} else if((diff == 8) || (somma == 8)) {
   console.log("la somma o sottrazione e' uguale a 8");
+}*/
+
+if (num1 === 8 || num2 === 8 || num1+num2 === 8 || num1-num2 === 8){
+  console.log("Verificato");
 }
 /* SCRIVI QUI LA TUA RISPOSTA */
 
