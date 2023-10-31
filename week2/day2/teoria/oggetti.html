@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oggetti</title>
+</head>
+<body>
+
+    <h2>Gli oggetti</h2>
+    <ul>
+        <li>Tutto cio che non e' un dato primitivo e' un oggetto</li>
+        <li>contenitori di valori eterogenei</li>
+        <li>normalmente un oggetto viene usato per rappresentare una specifica entita' (persona, prodotto, evento, canzone, prenotazione)</li>
+        <li>un oggetto possiede
+            <ul>
+                <li>dati, detti <strong>proprieta'</strong>rappresentate da coppie nome-valore</li>
+                <li>funzionalita' detti <strong>metodi</strong>rappresentate da delle funzioni</li>
+            </ul>
+        </li>
+        <li>per creare un oggetto usiamo la <b>rappresentazione letterale</b>: definiamo un oggetto a partire dal contenuto</li>
+    </ul>
+
+    <script>
+        var oggettoVuoto = {}; //definisco un oggetto vuoto //questa volta mi preparo ad avere un tipo di dato complesso
+        var persona = {
+            nome : 'Federico',
+            cognome : 'De Ambrosi',
+            eta : 42,
+        }; //coppie nme valore
+            //sui nomi non abbiamo le restrizioni delle variabili ma se usiamo caratteri speciali dobbiamo usare i ""
+        var persona2 = {"primo-nome" : "Federico", "cognome" : "De Ambrosis", "eta" : 42};
+            //una proprieta puo assumere qualsiasi valore (stringa, numeri, bool, null) compreso un altro oggetto
+
+        var persona3 = {
+            nome : "Federico",
+            cognome : "De Ambrosis",
+            indirizzo : {
+                via : "pippo",
+                numero : 1,
+                cap : 99999,
+                citta : "milano",
+            }
+        };
+
+        //accedere a una proprieta' dell'oggetto -> dot notation
+        var nome = persona.nome; //accedo alla proprieta nome dell'oggetto persona
+        //dot notation e' la modalita' standard per accedere ad una proprieta di un oggetto
+        var nome = persona["nome"];//square brackets notation (la uso solo se non posso usare dot notation)
+        var indirizzo = persona.indirizzo; //se accedo ad una proprieta non definita -> undefined
+
+        persona3.eta = 27;//definizione incrementale serve ad aggiungere delle proprieta ad un oggetto
+        //creando una proprieta dentro ad un oggetto e gli assegno un valore
+        //gli oggetti sono dinamici, la struttura degli oggetti e' flessibile e puo' essere modificata durante l'esecuzione dello script
+
+        var persona = {}; //parto da un oggetto vuoto
+        persona.nome = "Federico"; //dati cioe proprieta : coppia nome : valore separati da una virgola
+        persona.cognome = "De Ambrosis";
+        persona.eta = 42;
+        persona.indirizzo = {
+                via : "pippo",
+                numero : 1,
+        };
+
+        //eliminare una proprieta
+        delete persona.eta;
+    </script>
+    
+</body>
+</html>

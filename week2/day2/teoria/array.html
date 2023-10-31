@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array</title>
+</head>
+<body>
+
+    <h1>Array</h1>
+    <p>L'array e' una variabile multidimensionale. Dentro una variabile posso inserire un solo valore, 
+        dentro a un array posso inserire piu' valori.
+    </p>
+    <p>Dentro a un array incontriamo <b>strutture di dati omogenee</b> </p>
+    <p>Dentro ad un array possiamo conservare qualunque tipo di dato (primitivi o oggetti)</p>
+    <p>Gli array sono degli elenchi / liste dentro cui salvare diversi tipi di dati</p>
+    <p>Dentro ad un array posso associare piu valori ad un unico nome di variabile</p>
+    <p>L'uso degli array ci evita di definire piu variabili e semplifica lo svolgimento dell'operazione</p>
+
+    <script>
+        var giorniDellaSettimana = [    //gli array sono delimitati da parentesi quadre
+            "lunedi",                   //i valori sono separati da virgole
+            "martedi",
+            "mercoledi",
+            "giovedi",
+            "venerdi",
+            "sabato",
+            "domenica",                 //anche questa e' una rappresentazione o notazione letterale
+                                        //rappresento qualcosa a partire dal suo contenuto
+        ];
+
+        //per accedere ad un array devo fare riferimento al nome della variabile e all'indice corrispondente dell'elemento
+        var primoGiorno = giorniDellaSettimana[0];      //la numerazione degli indici degli array parte da zero
+        var terzoGiorno = giorniDellaSettimana[2];      //terzo giorno
+        var settimoGiorno = giorniDellaSettimana[6];    //ultimo giorno
+        var myArray = [];                               //un array puo essere vuoto
+        var myArray = [ , "elemento"];                   // un array il cui primo elemento e' undefined
+        var myArray = ["elemento", "altro elemento"];   //la virgola finale puo essere ignorata
+        var myArray = [123, "elemento", true, null];    //dentro un array posso mettere qualunque tipo di dato
+                                                        //ma useremo dati omogenei
+        var myArray = ["stringa", "el", ["a", "b"]];    //un array puo contenere altri array
+
+        var matrice = [[24, 13, 1], [48, 2, 3], [12, 98, 2]]; //array multidimensionale
+        var abc= matrice[2] [1];                        //accedo ad un array multidimensionale
+                                                        //terzo elemento array principale e secondo array contenuto (98)
+                                                        //accedo con delle coordinate 1 [valore posizione principale] 2 [valore posizione secondaria]
+        
+        var quarantotto = [1] [0];
+    </script>
+
+    <h2>Proprieta degli array</h2>
+    <p>In js esistono una serie di metodi che si indicano con nome_array.nome_metodo<br>
+    che ci permettono di fare una serie di operazioi sul mio array.</p>
+    <p>La prima proprieta che vediamo e' <b>lenght</b></p>
+    <p>la proprieta lenght conta quanti elementi sono contenuti in un array</p><br>
+    
+    <p>vedo il risultato:</p>
+    <p id="demo"> </p>   <!-- preparo un tag html dentro cui stampare qualcosa --><br>
+
+    <script>
+        //const studenti = ["Alessandro", "Alessio", "Alfonso", "alice"];
+        //let length = studenti.length; //inserisco in una variabile il metodo lenght
+
+        /* seleziobare il tag con id demo per stampare dentro il valore della mia variabile lenght */
+        //document.getElementById("demo").innerHTML = length;
+        //chiedo al dom (document) di fornirmi l'elemento che ha come id="demo"
+        //col metodo .innerHTML stampa dento a id="demo" la variabile lenght
+    </script>
+
+    <h3>Come inserire n elemento in un array</h3>
+    <p>per inserire elementi i un array uso un nuovo metodo che si chiama <b>push</b></p>
+    <script>
+        const studenti = ["Alessandro", "Alessio", "Alfonso", "alice"];
+        studenti.push("Alvise");    //aggiunge un nuovo elemento all'array
+        document.getElementById("demo").innerHTML = studenti;
+    </script>
+
+    <h3>Altri metodi base degli array</h3>
+    <a href="https://www.w3schools.com/jsref/jsref_pop.asp" target="_blank">Pop</a><br> 
+    <a href="https://www.w3schools.com/jsref/jsref_shift.asp" target="_blank">Shift</a><br>
+    <a href="https://www.w3schools.com/jsref/jsref_unshift.asp" target="_blank">Unshift</a><br>
+    <!-- 
+        length -> conta la lunghezza
+        push -> aggiunge in fondo
+        pop -> elimina da in fondo all array
+        shift -> elimina dall inizio
+        unshift -> aggiunge all inizio
+    -->
+
+    
+</body>
+</html>
