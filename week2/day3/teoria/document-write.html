@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document write</title>
+</head>
+<body>
+
+    <script>
+        //direttive output -> scrivere qualcosa nella pagina
+        document.write("hello world");                          //contenuto
+        document.write("<br>");                                 //html
+        document.write("<p><strong>Pippo</strong></p>");        //html piu contenuto
+        document.write(3+4);                                    //non e' una stringa quindi esegue l-operazione
+        document.write("<br><br>");
+
+        //inizializzo una variabile per registrare il numero di vite del nostro gicatore
+        var numLives = 3;
+        document.write(numLives);                               //stampo la variabile 
+        document.write("<br>"); 
+        //il nostro player sta giocando e perde una vita -> numLives - 1 -> riassegno un nuovo valore
+        numLives = 2;
+        document.write(numLives);
+        document.write("<br>");
+        //posso stampare sia vareiabili che testi concatenati
+        document.write("tu hai " +numLives + " vite ancora");
+    </script>
+    
+</body>
+</html>
