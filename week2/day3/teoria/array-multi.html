@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    let studentsData = [['alessandro', 24, 'ciao'], ['antonio', 23, 'ciao'], ['alice', 27, 'ciao']];
+
+    //for
+    //fare un loop di array multidimensionali
+    for(let i = 0; i < studentsData.length; i++){                                   //inizializazione, condizione, modifica
+            let innerArrayLength = studentsData[i].length;                          //la lunghezza dell,array la metta in un array che uso sotto
+            for(let studente = 0; studente < innerArrayLength; studente++) {        //studente (singolo nella collezione) nome a piacere
+                document.write(studentsData[i][studente] + "<br>");                 //mostro ciascun singolo[studente] nella collezione
+            }
+            document.write("<br>");
+    }
+
+    //for each -> metodo degli array che permette di applicare un'azione a ciascun elemento -> forEach associa una funzione 
+    studentsData.forEach((students) => {
+        students.forEach((data) => {
+            console.log(data);
+        })
+    })
+</script>
+
+</body>
+</html>

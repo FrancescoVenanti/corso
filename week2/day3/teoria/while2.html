@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="demo"></p>
+
+    <script>
+        var text = "";
+        var n = 1;
+        var i = 0;
+
+        while (n <= 10) {
+            text += "tabellina del " + n;
+            i=0;
+                while (i <= 10) {
+                    text += "<br>" + n + "x" + i + "=" + i*n;
+                    i++
+                }
+
+            n++;
+            text += "<br>" + "<br>" ;
+        }
+
+    document.getElementById("demo").innerHTML = text;
+
+
+        //esempio console log
+        var n = 1;
+        var i = 0;
+
+        while (n <= 10) {
+            console.log("tabellina del " +n)
+            i=0;
+                while (i <= 10) {
+                    console.log(n +" x " +i +" = " +(i*n));
+                    i++
+                }
+
+            n++;
+        }
+
+    </script>
+</body>
+</html>

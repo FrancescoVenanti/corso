@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Cicli o iterazioni o loop</h1>
+    <p>Strutture molto comuni nel linguaggio, ci permettono di eseguire una serie di istruzioni finche una condizione non e' valida<br>
+    perche ci sia un ciclo la condizione infatti deve mutare. La condizione cambia e viene ciclicamente verificata.<br>
+    quando la condizione non e' piu vera il codice associato non viene piu eseguito(si esce dal ciclo).<br>
+    js prevede due macro istruzioni per fare iterazioni: <code>while </code>e <code>for </code>
+    </p>
+
+    <h2>While</h2>
+    <p><b>Schema sintattico</b></p>
+    <script>
+        while (condizione) {
+            istruzioni
+        }
+        //finche la condizione sara' vera verranno eseguite le istruzioni del blocco di codice 
+        // requisito fondamentale: che le istruzioni del blocco di codice modifichino la condizione 
+        // IMPORTANTE! se le condizioni non modificano la condizione -> non posso mai uscire dal ciclo -> loop infinito
+    </script>
+
+    <h2>Do while</h2>
+    <p>Rispetto a while che abbiamo visto ha una variante: la condizione viene valutata dopo aver eseguito le istruzioni<br>
+    eseguo sempre le istruzioni e poi valuto la condizione.
+    </p>
+
+    <p><b>Schema sintattico</b></p>
+    <script>
+        do {
+            //istruzioni
+        } while (condizione);
+    </script>
+
+    <h2>Ciclo for</h2>
+    <p>Serve (come while) a eseguire un blocco di codice un determinato numero di volte<br>
+    numero che e' determinato da quella che abbiamo imparato a chiamare condizione</p>
+
+    <p><b>Schema sintattico</b></p>
+    <script>
+        for (inizializzazione; consizione; modifica) {
+            istruzioni
+        }
+        //inizializzazione e' l'istruzione che js esegue prima di avviare il ciclo
+        //condizione e' espressione booleana (true|false) che viene valutata prima di eseguire il ciclo
+        //                                  se e' false il blocco di istruzioni non viene eseguito
+        //modifica e' l'istruzione che viene eseguita al termine di ciascun ciclo 
+        //il ciclo ricomincia dalla valutazione della condizione
+        //a differenza di while abbiamo spostato la modifica fuori dal blocco delle istruzioni
+        //come in while dobbiamo essere sicuri che ci sia la modifica altrimenti non esco maidal ciclo
+            
+        
+    </script>
+</body>
+</html>
