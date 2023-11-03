@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>funzioni scope</title>
+</head>
+<body>
+    
+    <p>Fino a ECMAscript 6 avevamo var come unico modo di dichiarare una variabilie, poi let e const come estensioni</p>
+    <script>
+        var x = 10; // se dichiaro con var appartiene all'oggetto globale window -> e' accessibile globalmente
+    </script>
+
+    <p>Nelle funzioni js esiste uno scope (ambito) locale che e' diverso da quello globale</p>
+    <script>
+        var x = "fuori";            //dichiaro la var x fuori dalla funzione 
+        function faiQualcosa() {
+            var x = "dentro";        //dichiaro la var x dentro la funzione
+            console.log(x);         //dentro
+        }
+
+        faiQualcosa();              //invocazione della funzione 
+        console.log(x);             //fuori
+        //js non ha problemi a interpretare le due variabili quella globale non viene alterata
+
+        var x = "fuori";            
+        function faiQualcosa() {
+            x = "dentro";           //assegno il valore senza keyword var quindi aggiorna il valore dentro
+            console.log(x);   
+        }
+        faiQualcosa();               
+        console.log(x);
+        //la variabile x avendo uno scope globale e' accessibile anche all'interno della funzione -> il valore viene alterato
+        // le variabili dichiarate all'interno delle funzioni hanno uno scope locale e non sono accessibili dall'esterno
+        // var hauno scope locale | globale se viene dichiarato dentro o fuori la funzione
+
+        //le parentesi {} racchiudono il block scope, un blocco di codice a se rispetto a lcodice globale 
+        // -> una variabile che viene dichiarata con var non ha un block scope -> e' accessibile anche all'esterno del blocco di codice
+        // -> una variabile che viene dichiarata con let    ha block scope -> e' accessibile solo all'interno del blocco di codice
+        
+        /////////esempio
+        //...
+        //codice globale
+        //...
+        //blocco
+        {
+            var x = 2;
+        }
+        //qui x e' disponibile
+        {
+            let x = 2;
+        }
+        //qui x non e; disponibile
+
+        //////////esempio 2
+        var i = 0;
+        if (true) {
+            var i = 1;
+        }
+        console.log(i); // 1 -> i viene ricritto perche' e' modificabile anche fuori dal blocco
+
+        let i = 0;
+        if (true) {
+            var i = 1;
+        }
+        console.log(i); // 0 -> perche la variabile i viene riassegnata solo dentro al blocco if
+                        // l'assegnamento fatto usando let e' riferito solo al blocco di codice a cui let appartiene
+
+        
+        /////////// esempio3
+        var x = 10;         //x e' 10
+        {
+             x = 2;      //x e' 2
+        }
+        //anche qui sarebbe 2 (non c'e' block scope la variabile x viene sovrascritta)
+
+        //se invece uso let
+        var x = 10;         //x e' 10
+        {
+            let x = 2;      //x e' 2
+        }
+        //                  //qui x w' 10 -> non viene sovrascritta perche let ha un suo block scope {}
+
+
+        //ridichiarazione
+        // e' consentito
+        var x= 2;
+        var x = 3;
+        //con let e' consentito
+        let x = 2;
+        {let x = 3}     //in uno scope differente
+
+        //non e' consentito
+        var x = 2;
+        let x = 3; //non consentito
+        {
+            var x = 4;
+            let x = 5; //non consentito
+        }
+
+        //non posso ridichiarare let ne nello scope globale ne il quello locale
+    </script>
+
+    <h2>Hosting</h2>
+    <p>Comportamento in cui le funzioni (o le variabili) possono essere usate PRIMA della dichiaraazione</p>
+    <p>posso fare hosting con var ma non con let</p>
+    <p id="demo"></p>
+    <script>
+        myName = 'Federico'; //posso usare myNmae anche se lo dichiaro in seguito
+        var p = document.getElementById("demo");
+        var myName;         //dichiarazione
+
+        //migliora la leggibilita -> apro il file e vedo cosa fa il codice
+        resetPunteggio();
+        disegnaTabellone();
+        popolaTabellone();
+        avviaGioco();
+
+        function resetPunteggio(){
+            console.log("Sto resettando il punteggio");
+        }
+
+        function disegnaTabellone(){
+            console.log("Sto disegnando il tabellone");
+        }
+
+        function popolaTabellone(){
+            console.log("Sto popolando");
+        }
+
+        function avviaGioco(){
+            console.log("Sto avviando il gioco");
+        }
+    </script>
+</body>
+</html>

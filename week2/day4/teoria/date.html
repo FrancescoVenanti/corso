@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+</head>
+<body>
+    
+    <script>
+        var data = new Date(); //costruttore new, oggetto Date, ha una serie di metodi che associo alla var data
+        var Hh, Mm, Ss, mm;
+        Hh = data.getHours() + ":";
+        Mm = data.getMinutes() + ":";
+        Ss = data.getSeconds() + ":";
+        mm = data.getMilliseconds() + ":";
+        document.write("Sono le ore " +Hh +Mm +Ss +mm);
+
+        document.write("<br><br>");
+
+        var data = new Date();
+        var gg, mm, aaaa;
+        gg = data.getDate() + "/";
+        mm = data.getMonth()+ 1 + "/";
+        aaaa = data.getFullYear();
+        document.write("Oggi e' il : " +gg +mm +aaaa);
+
+        document.write("<br><br>");
+
+        var data = new Date();
+        var set, gg, mm, aaaa, h, m, s;
+        //crea la tabella dei mesi
+        var mesi = new Array();
+        mesi[0] = "Gennaio";
+        mesi[1] = "febbraio";
+        mesi[2] = "marzo";
+        mesi[3] = "aprile";
+        mesi[4] = "maggio";
+        mesi[5] = "giugno";
+        mesi[6] = "luglio";
+        mesi[7] = "agosto";
+        mesi[8] = "settembre";
+        mesi[9] = "ottobre";
+        mesi[10] = "novembre";
+        mesi[11] = "dicembre";
+        //crea tabella giuorni
+        var giorni = new Array();
+        giorni[0] = "domenica";
+        giorni[1] = "lunedi";
+        giorni[2] = "martedi";
+        giorni[3] = "mercoledi";
+        giorni[4] = "givedi";
+        giorni[5] = "venerdi";
+        giorni[6] = "sabato";
+        //estrae dalla tabella il giorno della settimana
+
+        set = giorni[data.getDay()] + " ";
+        gg = data.getDate()  + " ";
+        mm = mesi[data.getMonth()]  + " ";
+        aaaa = data.getFullYear()  + " ";
+        h = data.getHours()  + " ";
+        m = data.getMinutes()  + " ";
+        s = data.getSeconds()  + " ";
+
+        document.write("la data di oggi e': " +set +gg +mm +aaaa +" ore: "+h +m +s);
+
+
+
+
+    </script>
+
+</body>
+</html>

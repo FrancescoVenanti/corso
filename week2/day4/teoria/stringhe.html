@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stringhe</title>
+</head>
+<body>
+    
+    <p>Le stringhe hanno un oggetto corrispondente predefinito che prevede metodi per manipolare le stringhe</p>
+    <h2>Metodo length</h2>
+    <p>Risultato script:</p>
+    <p id="demo"></p>
+
+    <p>Metodo replace sostituisce il valore in una stringa con un altro</p>
+    <button onclick="myFunction()">Prova</button>
+    <p id="demo2">Vieni a visitare la grecia</p><br>
+
+    <button onclick="myFunctionDue()">Prova</button>
+    <p id="demo3">Converto questa scritta</p>
+
+    <script>
+        //metodo length -> conta quanti caratteri ci sono in una stringa
+        //let text = "inserisco in una variabile la mia stringa";
+        //document.getElementById("demo").innerHTML = text.length;
+
+        //metodo slice -> estrae una parte di una stringa
+        //let text = "inserisco in una variabile la mia stringa";
+        //let parte = text.slice(10, 16);       //due paramentri da dove a dove
+        //let parte = text.slice(10);           //da dove alla fine
+        //let parte = text.slice(-10, -1);      //parte a contare da in fondo     
+        //.substring invece non accetta valori negativi e fa la stessa cosa
+        //.substr -> la differenza e' che il secondo parametro dice quante lettere prendere nel taglio
+        //let parte = text.substr(10, 6);
+        //document.getElementById("demo").innerHTML = parte;
+
+        //metodo replace
+        function myFunction(){
+            let text = document.getElementById("demo2").innerHTML;
+            document.getElementById("demo2").innerHTML = text.replace("la grecia", "l' italia");
+        }
+
+        function myFunctionDue(){
+            let text = document.getElementById("demo3").innerHTML;
+            document.getElementById("demo3").innerHTML = text.toUpperCase();
+        }
+
+        
+
+    </script>
+
+</body>
+</html>
