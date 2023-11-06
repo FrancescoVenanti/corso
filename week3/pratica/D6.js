@@ -222,10 +222,11 @@ const movies = [
   },
 ]
 
+
 /* ESERCIZIO 9 (forEach)
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
- for (let i=0; i<movies.length; i++) {
+/*  for (let i=0; i<movies.length; i++) {
   movies[i].Year = parseInt(movies[i].Year);
 }
 
@@ -238,13 +239,14 @@ piuVecchio.push(movies[vecchio]);
 
 console.log(piuVecchio);
 
+
 function trovaVecchio (i) {
   var vecchio = movies[0].Year;
   if (movies[i].Year<vecchio) {
     vecchio = movies[i].Year;
   }
   return vecchio;
-} 
+}  */
 
 
 /* ESERCIZIO 10
