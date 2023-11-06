@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        //concat -> concatena degli array
+        const arr1 = ["alessandro", "alessio"];
+        const arr2 = ["alfonso", "alice", "alvise"];
+        const studenti = arr1.concat(arr2);
+        document.getElementById("demo").innerHTML = studenti;
+        document.getElementById("demo").innerHTML = studenti.includes("alice"); //se e' vero restituisce true
+        //metodo simile a quello visto prima con le stringhe 
+
+        // Find -> restituisce il primo valore che supera un determinato test
+        //findIndex -> restituisce l-indice del primo valore che suera un determinato test
+        const ages = [3, 10, 18, 20];
+        document.getElementById("demo").innerHTML = ages.find(checkAge);    //restituisce 20
+        document.getElementById("demo").innerHTML = ages.findIndex(checkAge);   //restituisce 3 
+
+        function checkAge(age) {
+            return age>18;
+        } 
+
+        // some -> controlla se almeno un elemento passa un determinato test
+        
+        document.getElementById("demo").innerHTML = ages.some(checkAdult); //restituisce true
+        function checkAdult(age) {
+            return age >=10;
+        } 
+
+        //filter -> Filtra in base a un determinato controllo
+        const ages2 = [32, 33, 16, 40];
+        document.getElementById("demo").innerHTML = ages2.filter(checkAdultAge); //restituisce tutto cio che e' piu di 18
+        function checkAdultAge(age) {
+            return age >=18;
+        }
+        
+        //map -> crea un nuovo array dal risultato di una funzione assegnato a ogni elemento
+
+        const numbers = [4, 9, 16, 25];
+        document.getElementById("demo").innerHTML = numbers.map(Math.sqrt); //radice quadrata
+                                                                            //map crea un nuovo array con i risultati
+
+        // forEach -> applica una funzione a ciascun elemento dell'array modificandolo
+        numbers.forEach(myFunction);
+        document.getElementById("demo").innerHTML = numbers;
+        function myFunction (item, index, arr) {                        //funzione obbligatoria, currentValue obbligatorio, index e' opzionale indice dell'elemento, arr opzionale e' l'array dell'elemento
+            arr[index] = item*10;
+        }
+
+        //reduce -> riduce a un unico valore in base all'operazione
+        const numbers2 = [175, 50, 25];
+        document.getElementById("demo").innerHTML = numbers2.reduce(myFunc);
+        function myFunc (total, num) {
+            return total - num;
+        }
+        
+        //every, join
+        //every every restituisce true se tutti rispettano una condizione
+        document.getElementById("demo").innerHTML = ages.every(checkAdult);
+
+    </script>
+</body>
+</html>

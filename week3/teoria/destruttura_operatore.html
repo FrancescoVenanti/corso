@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destrutturazione</title>
+</head>
+<body>
+    
+    <script>
+        var names = ['alpha', 'beta', 'gamma', 'delta'];
+        var firstName = names[0];
+        var secondName = names[1];
+        console.log(firstName);     //alpha
+        console.log(secondName);    //beta
+
+        //combinato con rest of
+
+        [x, y, ...restof] = [10, 20, 30, 40, 50];
+        console.log(x);
+        console.log(y);
+        console.log(restof);    //array degli altri valori [ 30, 40, 50]
+
+        //oggetto
+        ({x, y, ...restof} = {x:10, y:20, m:30, n:40});
+        console.log(x);         //10
+        console.log(y);         //20
+        console.log(restof);    //{m:30, n:40}
+    </script>
+
+</body>
+</html>

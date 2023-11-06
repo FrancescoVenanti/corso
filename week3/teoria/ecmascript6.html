@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMAscript 6    </title>
+</head>
+<body>
+    
+    <h1>Ecmascript 6</h1>
+    <p>Con l'avvento di ecmascript 6 una serie di novita importanti e' stata introdotta nel linguaggio</p>
+    <ul>
+        <li><b>Gia viste</b></li>
+        <li>let e const</li>
+        <li>arrow function</li>
+        <li><b>vedremo oggi</b></li>
+        <li>operatore spread</li>
+        <li>parametri rest</li>
+        <li>Destrutturazione array|oggetti</li>
+        <li>Template literals</li>
+        <li>Nuovi metodi degli array</li>
+        <li><b>Vedremo piu avanti</b></li>
+        <li>Class</li>
+        <li>Promises</li>
+    </ul>
+
+    <h2>Operatore spread</h2>
+    <p>L'operatore spread condivide con i parametri rest una particolare sintassi: i tre puntini <code>...</code><br>
+    <b>Spread</b> in inglese significa espandere | diffondere. Con l'operatore <code>spread</code> posso espandere un array|oggetto per estrarne i dati e renderli disponibili in ambiti diversi<br>
+    (li passo come parametri a una funzione, creo un nuovo array etc.)
+    </p>
+    <p><b>Sintassi spread</b></p>
+    <script>
+        //esempio 1: in una funzione 
+        function mia_funzione(a, b, c){
+            console.log(a, b, c);
+        }
+        let valori = ["Ecco", "l'operatore", "spread"];
+        mia_funzione(...valori); //ecco l'operatore spread
+        //i valori vengono estratti e utilizzati come se li avessimo inseriti normlamente uno ad uno con la virgola
+
+        //esempio 2: in un array -> semplifica la creazione di array 
+        //usiamo l'operatore spread per estrarre tutti i dati in un array e inserirli in un altro
+        var lista_a = [0, 1, 2, 3];
+        var lista_b = [...lista_a, 4, 5];
+        console.log(lista_b); // [0 1 2 3 4 5 6]
+
+        //esempio 2b : possiamo usare l'operatore spread dove vogliamo e anche piu volte
+        let giorniLavorativi = ["lunedi", "martedi", "mercoledi", "giovedi", "venerdi"];
+        let fineSettimana = ["sabato", "domenica"];
+        let settimana = [...giorniLavorativi, ...fineSettimana];
+        console.log(settimana);
+
+        /* quando copio un array (array1 = array2)  -> sto copiando un riferimento al primo array 
+                                                    -> le due variabili sono collegate
+                                                    ->ogni modifica a una variabile e' visibile nell'altra
+        con l'operatore spread INVECE faccio quelle che si chiamano copie superficiali -> non si modifica l'originale*/
+
+        let originale = [0, 1, 2];
+        let copiaRiferimento = originale;   //copia del mio riferimento
+        let copiaValori = [...originale];   //faccio la copia superficiale // shallow copy
+        originale.push(3);
+        console.log(copiaRiferimento);      // 0 1 2 3 
+        console.log(copiaValori);           // 0 1 2 
+
+        //esempio 3 : con degli oggetti
+
+        let utenteBase = {
+            nome:"",
+            password: "",
+        };
+
+        let amministratore = {
+            ...utenteBase,
+            permessi: [],
+        };
+
+    </script>
+
+    <h2>Parametro rest</h2>
+    <p><b>Rest</b> in inglese significa resto|restante. con <code>parametro rest</code> raccogliamo un nuometo non definito di parametri in un array</p>
+
+    <p>Quando dichiariamo una funzione indichiamo il numero di parametri -> anche perche' tendenzialmente solo quelli che valorizziamo<br>
+    in alcune funzioni possiamo aggiungere n parametri, <em>i parametri delle funzioni vengono inseriti un array <code>arguments</code><br>
+    che in realta' e' un tipo speciale di oggetto.</em> Con i parametri rest <code>...</code> quando dichiaro i parametri di una funzione 
+    possiamo racchiudere tutti i parametri di troppo</p>
+
+    <p><b>Schema sintattico</b></p>
+    <script>
+        function parametriRest (primo, secondo, ...altri) {
+            console.log(primo);     //stampa il parametri primo
+            console.log(secondo);   //stampa il parametro secondo
+            console.log(...altri);  //['terzo', 'quarto', ...]  //stampo l'array degli altri parametri
+            console.log(arguments); //arguments e' la keyword associata ai parametri di una funzione //non e' molto in uso
+        }
+
+        parametriRest("primo", "secondo", "terzo", "quarto", "quinto"); //quando invoco la funzione valorizzo parametri
+    </script>
+
+    <h2>Assegnamento di destrutturazione</h2>
+    <p>Le strutture piu utilizzate sono oggetti e array <br>
+    A volte puo non essere necessario tutto l'oggetto|array ma solo una parte <br>
+    Lassegnamento di destrutturazione e' una sintassi che ci permette di spacchettare oggetti o array </p>
+
+    <script>
+        let arr = ['francesco', 'venanti']; //array con nome e cognome
+        let [firstName, surname] = arr;     //assegnamento di destrutturazione
+                                            // imposta firstName = arr[0] e surname = arr[1]
+        console.log(firstName);
+        console.log(surname);
+    </script>
+
+    <p>1. <b>destruttura</b> non distrugge! i singoli elementi vengono copiati dentro a delle variabili ma l'array originale non viene modificato</p>
+    <p>2. posso ignorare degli elementi usanto la virgola</p>
+    <script>
+        let [nome, ,titolo] = ['francesco', 'venanti', 'studente']
+        console.log(titolo);
+    </script>
+
+    <p>3. Funziona con qualsiasi iterabile array, stringe ecc</p>
+
+    <h2>Template literals</h2>
+    <p>Si tratta di una sintassi per comporre stringhe complesse</p>
+    <p>Ci capitera di avere stringhe di output che vanno ad esempio su piu righe, che portano diverse variabili da concatenare</p>
+    <p>ad esempio</p>
+    <script>
+        var messaggio = "attenzione il valore inserito " +valore + "non e' valido perche deve essere compreso tra" +valoreIniziale +valoreFinale;
+    </script>
+
+</body>
+</html>

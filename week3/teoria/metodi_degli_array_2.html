@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        const fruits = ["banana", "arancia", "mela", "mango"];
+        /* metodi gia visti 
+        length -> conta gli elementi e restituisce un valore
+
+        */
+        let length = fruits.length;
+        document.getElementById("demo").innerHTML = length;
+
+        fruits.length = 2;
+        document.getElementById("demo").innerHTML = fruits;
+
+        //push -> aggiunge un elemento in fonto all'array
+        fruits.push("kiwi", "limoni");
+        document.getElementById("demo").innerHTML = fruits;
+
+        // pop -> elimina un elemento da in fondo all'array
+        fruits.pop();
+        document.getElementById("demo").innerHTML = fruits;
+
+        //let removed = fruits.pop()
+        //document.getElementById("demo").innerHTML = removed;
+
+        //shift -> rimuove il primo item di un array
+        fruits.shift();
+        document.getElementById("demo").innerHTML = fruits;
+
+        //unshift -> aggiungere nuovi item all'inizio dell'array
+        fruits.unshift("ananas", "melograno", "uva");
+        document.getElementById("demo").innerHTML = fruits;
+
+        //sort -> ordina un array alfabeticamente
+        fruits.sort();
+        document.getElementById("demo").innerHTML = fruits;
+
+        //reverse -> ordine inverso
+        fruits.reverse();
+        document.getElementById("demo").innerHTML = fruits;
+
+        //splice -> togliere o aggiungere elementi in qualsiasi posizione
+        // due argomenti obbligatori piu argomenti opzionali
+        //1. argomento -> obbligatorio -> la posizione da cui aggiungere o eliminare argomenti
+        //2. argomento -> obbligatorio -> quanti elementi eliminare 
+        //dal 3. arg -> opzionali -> indicano quali elementi aggiungere
+        fruits.splice(2,2);                                 //dalla posizione 2 elimino 2 items
+        document.getElementById("demo").innerHTML = fruits;
+        fruits.splice(2, 0, "noci", "nocciole");            //dalla posizione 2 elimino 0 e aggiungo noci e nocciole
+        document.getElementById("demo").innerHTML = fruits;
+
+        //IndexOf -> cercare un elemento in un array -> restituisce la posizione
+        let index = fruits.indexOf("noci");                 //cerca l-indice di noci
+        index = fruits.indexOf("noci", 1);              //cerco qualcosa a partire da una posizione
+        document.getElementById("demo").innerHTML = index;  //stampa 2 perche' e il terzo elemento
+
+
+    </script>
+</body>
+</html>

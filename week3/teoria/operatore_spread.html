@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spread</title>
+</head>
+<body>
+    
+    <h2>Operatore</h2>
+    <p>Ci permette di espandere <em>("spread")</em> qualcosa di iterabile (array, stringhe)</p>
+
+    <script>
+        function sum(x, y, z, k) {      //dichiaro la funzione
+            return x + y + z + k;
+        }
+
+        const numbers = [1, 2, 3, 4];   //valorizzo i parametri
+        console.log(sum(...numbers));   //invoco la funzione    // mi aspetto -> 10
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teamplate literals</title>
+</head>
+<body>
+    <h3>Template string</h3>
+    <p>sintassi avanzata per comporre stringhe complesse -> delimitata da apice inverso (backtick) ``</p>
+
+    <script>
+        var valore_iniziale = 0;
+        var valore = 12;
+        var valore_finale = 24;
+        var messaggio = "attenzione il valore inserito " +valore + "non e' valido perche deve essere compreso tra" +valore_iniziale +"e " +valore_finale;
+        console.log(messaggio);
+        //uso template string   -> con `` 
+        //                      -> non ho bisogno di /n per andare a capo
+        //                      -> sintassi per passare le vaiabili senza concatenare
+        var messaggio =`attenzione!
+il valore inserito ${valore} non e' valido perche deve essere compreso tra ${valore_iniziale} e ${valore_finale}.
+Si prega di riprovare`;     //gli a capo inseriti in un template string vengono mantenuti
+        console.log(messaggio);
+    </script>
+</body>
+</html>

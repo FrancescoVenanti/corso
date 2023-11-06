@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Metodi nuovi delle stringhe</h1>
+    <p>Abbiamo gia isto metodi nuovi come: length (lunghezza), slice, substring, substr (tagliare le stringhe), 
+        toUpperCase e toLowerCase (per renderle maiuscole o minuscole), trim (pulire dagli spazi bianchi)
+    </p>
+
+    <p><b>Metodi di controllo sulle stringhe: </b>mi permettono di controllare se una stringa inizia, finisce o contiene determiunati caratteri.</p>
+    <h3>Controllo se una stringa inizia con determinati caratteri -> metodo <code>startsWith</code></h3>
+    <script>
+        const str1 = "Saturday night plans";
+        console.log(str1.startsWith("Sat"));      // risultato atteso true
+        //startsWith puo accettare due parametri (cosa cercare, posizione in cui cercarlo)
+        console.log(str1.startsWith("Sat", 3));   // risultato false -> perche non e' nella posizione 3
+        // il secondo parametro dice la posizione iniziale in cui cercare, la prima lettera e' 0
+
+        const str2 = "To be, or not to be";
+        console.log(str2.startsWith("To be"));          //true
+        console.log(str2.startsWith("not to be"));      //false
+        console.log(str2.startsWith("not to be", 10));  //true
+    </script>
+
+    <h3>Constrollo se una stringa finisce con determinati caratteri -> <code>endsWith</code></h3>
+    <script>
+        const str3 = "Rugby is best!";
+        console.log(str3.endsWith("best!"));            //true
+        console.log(str3.endsWith("best!", 9));         //true
+    </script>
+
+    <h3>Controllare se una stringa contiene una determinata parola -> <code>includes</code></h3>
+    <script>
+        const sentence = "Il rugby è lo sport piu bello del mondo";
+        const word = "sport";
+        console.log(
+            `La parola "${word}" ${sentence.includes(word) ? 'è': 'non è'} contenuta nella frase`);
+        //la prima graffa e' semplicemente una variabile
+        //nella seconda graffa metto un operatore ternario
+        //com'era fatto l'operatore ternatio? -> condizione  true|fale ? se tue eseguo il primo blocco : se false il secondo
+    </script>
+</body>
+</html>
