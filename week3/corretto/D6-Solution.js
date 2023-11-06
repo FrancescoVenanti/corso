@@ -1,111 +1,98 @@
 /* ESERCIZIO 1
   Scrivi una funzione per concatenare due stringhe ricevute come parametri, selezionando solamente i primi 2 caratteri della
   prima e gli ultimi 3 della seconda. Converti la stringa risultante in maiuscolo e mostrala con un console.log().
-  metodo concat 
 */
-const str1 = "hello";
-const str2 = "world";
-console.log("esercizio 1: " +concatena( str1, str2))
 
-function concatena (x, y) {
-  var prime2 = x.slice(0, 2);
-  var ultime3 = y.slice(-3);
-  var conc = prime2.concat(ultime3);
-  return conc.toUpperCase();
+const concatString = (str1, str2) => {
+  return str1.slice(0, 2).concat(str2.slice(str2.length - 3))
 }
 
-
+console.log(concatString('Pippo', 'Pluto').toUpperCase());
 
 /* ESERCIZIO 2 (for)
-  Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
-  metodi matematici
+    Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
 */
-var numbers = [];
-console.log("esercizio 2: " +numeroRandom(numbers))
 
-function numeroRandom () {
-  for (let i = 0; i < 10; i++) {
-    var x = Math.floor(Math.random()*100) + 1;
-    numbers.push(x);
+const random10 = () => {
+  const array = []
+  for (let index = 0; index < 10; index++) {
+    array.push(Math.floor(Math.random() * 101))
   }
-  return numbers;
+  return array
 }
+
+console.log(random10())
 
 /* ESERCIZIO 3 (filter)
-  Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
-  array poi %2
+    Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
-console.log("esercizio 3: " +numbers.filter(valoriPari));
 
-function valoriPari (arr){
-  return arr%2 == 0;
+const soloPari = (array) => {
+  return array.filter((elemento) => elemento % 2 === 0)
 }
+
+console.log(soloPari([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 
 /* ESERCIZIO 4 (forEach)
-  Scrivi una funzione per sommare i numeri contenuti in un array
-  array poi somma
+    Scrivi una funzione per sommare i numeri contenuti in un array
 */
-var somma = 0;
-numbers.forEach(sum1);
-console.log("esercizio 4: " + somma);
 
-function sum1(item) {
-  somma += item;
+const sommaNumeri = (array) => {
+  let somma = 0
+  array.forEach((element) => {
+    somma += element
+  })
+  return somma
 }
+
+console.log(sommaNumeri([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 
 /* ESERCIZIO 5 (reduce)
-  Scrivi una funzione per sommare i numeri contenuti in un array
-
+    Scrivi una funzione per sommare i numeri contenuti in un array
 */
-console.log("esercizio 5: " +numbers.reduce(sumR));
 
-function sumR (total, num) {
-  return total + num;
+const reduceSommaNumeri = (array) => {
+  return array.reduce((acc, curr) => acc + curr, 0)
 }
+
+console.log(reduceSommaNumeri([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 
 /* ESERCIZIO 6 (map)
-  Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
-  reduce 
+    Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
-const n = 2;
-var numbers2 = numbers.map(incremento);
-console.log("esercizio 5: " +numbers2);
 
-function incremento(total) {
-  return total + n;
+const incrementaArray = (array, n) => {
+  return array.map((el) => el + n)
 }
+
+console.log(incrementaArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10))
 
 /* ESERCIZIO 7 (map)
-  Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
-  es.: ["EPICODE", "is", "great"] => [7, 2, 5]
-  metodo per contare le lunghezze
+    Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
+    es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
-var conteggio = 0;
-const stringhe = ["EPICODE", "is", "great"];
-const lunghezza = stringhe.map(contaString);
-console.log(lunghezza);
 
-function contaString (x) {
-  return conteggio = x.length;
+const lunghezze = (array) => {
+  return array.map((elem) => elem.length)
 }
+
+console.log(lunghezze(['EPICODE', 'is', 'great']))
 
 /* ESERCIZIO 8 (forEach o for)
-  Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
-  for con i numeri da 1 a 100, poi push if dispari
+    Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
 
-var dispari = [];
-for (let i=0; i<100; i++) {
-  if (trovaDispari(i)) {
-    dispari.push(i);
+const oddOnly = () => {
+  const array = []
+  for (let i = 0; i < 100; i++) {
+    if (i % 2 !== 0) {
+      array.push(i)
+    }
   }
+  return array
 }
-console.log(dispari);
 
-
-function trovaDispari(n) {
-  return n%2!==0;
-}
+console.log(oddOnly())
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
@@ -223,101 +210,82 @@ const movies = [
   },
 ]
 
-
 /* ESERCIZIO 9 (forEach)
-  Scrivi una funzione per trovare il film più vecchio nell'array fornito.
+    Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
-/*   for (let i=0; i<movies.length; i++) {
-  movies[i].Year = parseInt(movies[i].Year);
+
+const oldestMovie = (array) => {
+  let result = { Year: 2100 }
+  array.forEach((movie) => {
+    let currentYear = parseInt(movie.Year)
+    if (currentYear < result.Year) {
+      result = movie;
+    }
+  })
+
+  return result;
 }
-piuVecchio = [];
 
-movies.forEach(trovaVecchio())
-
-piuVecchio.push(movies[vecchio]);
-
-console.log(piuVecchio);
-
-
-function trovaVecchio (i) {
-  var vecchio = movies[0].Year;
-  if (movies[i].Year<vecchio) {
-    vecchio = movies[i].Year;
-  }
-}  
- */
+console.log(oldestMovie(movies))
 
 /* ESERCIZIO 10
-  Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
-  contare quante cose
+    Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
-var numeroFilm = 0;
-console.log(movieCount(movies));
 
-function movieCount(arr){
-  return numeroFilm = arr.length;
+const countMovies = (array) => {
+  return array.length
 }
+
+console.log(countMovies(movies))
 
 /* ESERCIZIO 11 (map)
-  Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
-  leggere dentro array, fare push di title
+    Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
-var titoli = [];
 
-pushTitoli(movies);
-console.log("esercizio 11 :" +titoli);
-
-function pushTitoli (arr) {
-  for (let i = 0; i < arr.length; i++) {
-    titoli.push(arr[i].Title);
-  }
+const onlyTitles = (array) => {
+  return array.map((elem) => elem.Title)
 }
+
+console.log(onlyTitles(movies))
 
 /* ESERCIZIO 12 (filter)
-  Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
-  controllo > 1999
+    Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
-function filtroAnno(x){
-  return x.filter((i) => {return parseInt(i.Year) > 1999});
+
+const onlyInThisMillennium = (array) => {
+  return array.filter((movie) => {
+    return parseInt(movie.Year) > 1999
+  })
 }
-console.log(filtroAnno(movies));
+
+console.log(onlyInThisMillennium(movies))
 
 /* ESERCIZIO 13 (reduce)
-  Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
+    Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
-sumAnni = [];
-for (let i = 0; i < movies.length; i++) {
-  sumAnni.push(parseInt(movies[i].Year)) 
-}
-console.log("esercizio 13: " +sumAnni.reduce(sumR));
 
-function sumR (total, num) {
-  return total + num;
-}
-// con funzione freccia
 const sumAllTheYears = (array) => {
-  return array.reduce((acc, curr) => acc+parseInt(curr.Year), 0)
+  return array.reduce((acc, curr) => acc + parseInt(curr.Year), 0)
 }
 
-console.log(sumAllTheYears(movies));
+console.log(sumAllTheYears(movies))
 
 /* ESERCIZIO 14 (find)
-  Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
-  passo un valore di imbdId e lo cerco
+    Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
 
 const getMovieById = function (array, id) {
-  return array.find ((elem) => elem.imdbID === id)
+  return array.find((elem) => elem.imdbID === id)
 }
 
-console.log(getMovieById(movies, 'tt4154796'))
+console.log(getMovieById(movies, 'tt0355702'))
 
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
-  simile a sopra
 */
+
 const getMovieByYear = function (array, year) {
-  return array.findIndex ((elemento) => parseInt(elemento.Year) === year)
+  return array.findIndex((elem) => parseInt(elem.Year) === year)
 }
 
-console.log(getMovieByYear(movies, 2003))
+console.log(getMovieByYear(movies, 2012))
