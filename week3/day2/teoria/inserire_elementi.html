@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserire elementi nel dom</title>
+    <style>
+        #myDiv {
+            background-color: grey; padding:20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inserire elementi nel dom via javascript</h1>
+    <p>Creare un nuovo paragrafo p con del testo</p>
+    <div id="myDiv"></div>
+    <p>Cose che so</p>
+    <ul id="myList1">
+        <li>css</li>
+        <li>html</li>
+    </ul>
+    <p>Cose che non so</p>
+    <ul id="myList2">
+        <li>javascript</li>
+        <li>react</li>
+    </ul>
+    <p>Cose che devo fare</p>
+    <ul id="myList">
+        <li>andare al bar</li>
+        <li>andare al concerto</li>
+    </ul>
+    <button onclick="myfunction()">Sposta da sotto a sopra</button>
+    <button onclick="myfunction2()">Sposta da sopra a sotto</button>
+    <br>
+    <button onclick="myFunction_weekend()">Sostituisco il primo elemento di una lista</button>
+    <p id="demo">Clicco sul bottone remove per rimuovere questo paragrafo dal dom</p>
+    <button onclick="rimuovi()">Rimuovi</button>
+    <script>
+        //createElement e' l'istruzione che ci permette di creare un nuovo elemento
+        const paragrafo = document.createElement('p');  //creo un elemento, nel parametro dico che tipo di elemento creo
+        paragrafo.innerText = "Questo e' il mio nuovo paragrafo";   //innerText inserisco dei testi semplice (senza formattazione)
+        //non e' sufficenet l'elemento per vederlo a video, devo anche usare un comando per inserirlo
+        //l'ho soltanto creato per ora
+        document.body.appendChild(paragrafo);   //appenChild dico di inserire paragrafo in coda a <body>
+        
+        //creo un tag e lo inserisco in un div 
+        const paragrafo2 = document.createElement('p');
+        paragrafo2.innerHTML = "questo e' un paragrafo";            //innerHTML inserisce dei testi con formattazione 
+        document.getElementById("myDiv").appendChild(paragrafo2);
+
+        // con appendChild inserisco sempre il tag in fondo al contenitore
+        // posso anche creare e assegnare contenuto separatamente
+        const btn = document.createElement("button");
+        btn.innerHTML = "bottone ciao";
+        document.body.appendChild(btn);
+
+        //appendChild
+        function myfunction() {
+            const node = document.getElementById('myList2').lastElementChild;
+            document.getElementById('myList1').appendChild(node);
+        }
+        function myfunction2() {
+            const node = document.getElementById('myList1').lastElementChild;
+            document.getElementById('myList2').appendChild(node);
+        }
+
+        //insertBefore per inserire prima (e non infondo come con appendChild)
+        const newNode = document.createElement('li');   //creo un <li>
+        const textNode = document.createTextNode("Studiare Javascript");    // aggiungo un nodo di testo
+        newNode.appendChild(textNode);       //appendo textNode al mio <li> 
+        const list = document.getElementById("myList");    //inserisco prima di un child esistente
+        list.insertBefore(newNode, list.children[0]);
+
+        /* replace child */
+        //uso replace child per sostituire un determinato valore di una lista
+        function myFunction_weekend() {
+            //seleziono il primo elemento di una lista -> entro nella lista ul e mi faccio dare il primo children
+            const element = document.getElementById('myList').children[0];
+            //creo un nuovo testo
+            const sabato = document.createTextNode("vado al mare");
+            //sostituisco
+            element.replaceChild(sabato, element.childNodes[0]);
+        }
+
+        //remove
+        //uso remove per rimuovere qualcosa dal DOM
+        function rimuovi() {
+            //seleziono un elemento
+            const mioDiv = document.getElementById('demo');
+            //metodo remove
+            mioDiv.remove();
+        }
+
+        //lastElementChild() -> esiste firstElementChild()
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rosso{
+            background-color: red;
+            color:white
+        }
+        .black{
+            background-color: black;
+            color:grey
+        }
+        .gold{
+            background-color: gold;
+            color:green
+        }
+    </style>
+</head>
+<body>
+    <span id="demo2">Il colore del testo è <b id="demo">black</b></span>
+    <button id="change_btn" onclick="myFunction()">Change color</button>
+    <script>
+        /* var colors = [["red", "white"], ["black", "grey"], ["green", "gold"]]; */
+        var colors = ['red', 'black', 'green'];
+        var textColors = ['white', 'grey', 'gold']
+        var attuale = 0;
+        // selettore che intercetta che fa partire la funzione
+        // seleziono body e uso la posizione 0 -> background-color posizione 1 -> color
+        // colors[i][0]
+        // selezione span b e cambio il contenuto dello span posizione 1 -> color
+        // ciclo for
+        function myFunction() {
+            document.body.style.backgroundColor = colors[attuale];
+            document.body.style.color = textColors[attuale];
+            if (attuale < 2) {
+                attuale = attuale + 1;
+            }else (attuale = 0) ;
+
+            const rimuovi = document.getElementById("demo");
+            rimuovi.remove();
+            const b = document.createElement("b");
+            const white = document.createTextNode("white");
+            const gray = document.createTextNode("grey");
+            const gold = document.createTextNode("gold");
+            switch (attuale) {
+                case 0 :document.getElementById('demo2').appendChild(b);      
+                break;
+                case 1: document.getElementById('demo2').appendChild(b);
+                break;
+                case 2: document.getElementById('demo2').appendChild(b);
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

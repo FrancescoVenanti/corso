@@ -253,7 +253,6 @@ console.log(millennio(movies))
 let sommaAnni = (arr) => {
   return arr.reduce((acc, curr) => acc + parseInt(curr.Year), 0)
 }
-
 console.log(sommaAnni(movies))
 
 
