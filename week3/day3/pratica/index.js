@@ -29,7 +29,7 @@ const addTask = function () {
         paragrafo.appendChild(button);
         button.classList.add('rimuovi');
     }
-    
+    testo.value = '';
 }
 
 const attachComplete = function () {
