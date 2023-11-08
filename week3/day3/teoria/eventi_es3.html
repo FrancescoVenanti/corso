@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esempio 3</title>
+</head>
+<body>
+    <!-- piu tipi di eventi nello stesso DOM (click, mouseover, mouseout) -->
+    <button id="clickIt">Clicca qui</button>
+    <p id="HoverPara">Paragrafo su cui fare onmouseover onmouseout</p>
+    <p id="effect"></p>
+    <script>
+        //1. aggancio gli elementi html
+        //2. con addEventListener sull'elemento html che ho agganciato associo all'evento una funzione 
+        //3. dichiaro la funzione
+        
+        const x = document.getElementById('clickIt');
+        x.addEventListener('click', respondClick);
+        function respondClick () {
+            document.getElementById('effect').innerHTML += "click event" +"<br>";
+        }
+
+        const y = document.getElementById('HoverPara');
+        y.addEventListener('mouseover', respondMouseOver);
+        y.addEventListener('mouseout', respondMouseOut);
+        function respondMouseOver() {
+            document.getElementById('effect').innerHTML += "mouseOver event" +"<br>"
+        }
+        function respondMouseOut() {
+            document.getElementById('effect').innerHTML += "mouseOut event" +"<br>"
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>metodi di window</title>
+    
+</head>
+<body>
+    <h3>History</h3>
+    <p>History serve per fare la navigazione avanti|indietro nelle pagine</p>
+    <p><b>Back</b></p>
+    <p>Cliccando su back tornera' alla scheda precedente del browser</p>
+        <button onclick="history.back()">Go back</button>
+    <p>Se apro la pagina in una nuova scheda non succede niente perche' non c'e' una scheda precedente
+        ma se apro la pagina in una scheda che ha pagine precedenti tornera indietro
+    </p>
+
+    <p><b>forward</b></p>
+    <p>Cliccando su forward imitera il comportamento freccina in avanti del browser</p>
+    <button onclick="history.forward()">Go forward</button>
+
+    <p><b>go</b></p>
+    <p>go passa un valore come parametro che mi dice di quanto muovermi</p>
+    <button onclick="history.go(+2)">Go forward 2 pagine</button>
+
+
+    <h3>Open</h3>
+    <p>metodo javascript per aprire nuove finestre nel browser</p>
+    <p>Clicca il bottone per aprire una nuova tab</p>
+    <button onclick="apri()">Prova</button>
+    <script>
+        function apri(){
+            window.open("")
+        }
+    </script>
+    <!-- esiste anche close -->
+
+    <h3>MoveTo</h3>
+    <p>apro una finestra e la sposto</p>
+    <p>apro "myWindow" e la sposto di 500x100</p>
+    <button onclick="openWin()">apre myWindow</button>
+    <button onclick="moveWin()">sposta myWindow</button>
+    <script>
+        let myWindow;
+        function openWin() {
+            myWindow = window.open("", "", "width = 100, height=100")
+        }
+        function moveWin() {
+            myWindow = window.moveTo(500, 500);
+        }
+    </script>
+    <!-- window metodi per calcolare larghezza e altezza di una finestra .innerHeight .innerWidth -->
+</body>
+</html>

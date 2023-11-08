@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>controllo form</title>
+</head>
+<body>
+    <!-- creo un campo email e finche non ho verificato che nell'input sto scrivendo un'email (qualcosa@qualcos'altro) non posso cliccare sul bottone invia -->
+    <form id="signUpForm">
+        <input type="email" id="emailField" required>
+        <button id="okButton" disabled>OK</button>
+    </form>
+    <script>
+        const signUpForm = document.getElementById('signUpForm');
+        const emailField = document.getElementById('emailField');
+        const okButton = document.getElementById('okButton');
+
+        emailField.addEventListener('keyup', function (event) {
+            isvalidEmail = emailField.checkValidity();      //restituisce true se il testo rispetta il type dell'input (in questo caso email)
+            
+            if (isvalidEmail) {
+                okButton.disabled = false;
+            }   else {
+                okButton.disabled = true;
+            }
+        });
+
+        okButton.addEventListener('click', function(event) {
+            signUpForm.submit();        //intercetta l'invio
+        });
+    </script>
+</body>
+</html>

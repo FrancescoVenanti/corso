@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventi</title>
+    <style>
+        table, th, td, tr {border: 1px solid black}
+    </style>
+</head>
+<body>
+    <h1>Eventi in javascript</h1>
+    <p>Un evento e' qualcosa che accade nella nostra pagina web | qualcosqa che accade nel nostro documento.
+        All'interno del documento che ospita la nostra pagina web l'utente puo realizzare delle azioni
+        (passaggio del mouse sul link, click su qualcosa, digitazione di tasti) oppure ci possono essere azioni 
+        che sono dovute alla situazione contingente (ad esempio una pagina si e' caricata). <br>
+        Grazie agli eventi noi possiamo associare delle porzioni di codice (ad esempio una serie di istruzioni) e farle eseguire quando accade una determinata azione
+        (esempio: clicco su un form e verifico che i campi siano compilati, inserisco qualcosa in un campo input e quel qualcosa viene stampato a video).<br>
+        <b>Quali sono i principali eventi che possiamo intercettare</b>
+    </p>
+    <table>
+        <tr>
+            <th>Evento</th>
+            <th>tag su cui si applica</th>
+            <th>Descrizione</th>
+            <th>Esempio</th>
+        </tr>
+        <tr>
+            <td>onload</td>
+            <td>body, img</td>
+            <td>l'evento scatta quando l'oggetto risulta caricato</td>
+            <td><code>&lt;body on load="alert("ciao")&gt;</code></td>
+        </tr>
+        <tr>
+            <td>onmouseover</td>
+            <td>a, input</td>
+            <td>al passaggio del mouse</td>
+            <td><code>&lt;a onmouseover="alert('ciao') href="#"&gt;</code></td>
+        </tr>
+        <tr>
+            <td>onmouseout</td>
+            <td>a, input</td>
+            <td>quando il mouse esce dal tag a cui abbiamo assegnato l'evento</td>
+            <td><code>&lt;a onmouseout="alert('ciao')" href="#"&gt;</code></td>
+        </tr>
+        <tr>
+            <td>onclick</td>
+            <td>a, input type submit</td>
+            <td>quando intercetto il click del mouse si scatena l'evento</td>
+            <td><code>&lt;a onclick="alert('ciao')" href="#"&gt;</code></td>
+        </tr>
+        <tr>
+            <td colspan="4"> altri eventi -> onkey press (premuto un tasto); onchange (quando un elemento subisce un cambiamento); onsubmit (intercetta l'invio di un form)</td>
+        </tr>
+        <tr>
+            <td colspan="4">onfocus | onblur (si usano principalmente nei form per evidenziare quando un elemento e' attivo | non e' attivo.</td>
+        </tr>
+        <tr>
+            <td colspan="4">Gli eventi sarebbero decine perche' possiamo intercettare qualsiasi cosa fa l'utente <br> (doubleclick, drag and drop, singoli click del mouse...)</td>
+        </tr>
+    </table>
+
+    <p>Gli eventi sono molto importanti perche ci permettono di associare a un comportamento dell'utente una serie di istruzioni</p>
+
+    <h3> Eventi e handler</h3>
+    <p>Dobbiamo intercettare gli eventi che vengono scatenati nella pagina, per farlo usiamo il metodo degli <em>handler</em> o se preferite <em>listener</em> 
+    a questi assoceremo una funzione di callback cioe' di richiamo (che si attiva quando il listener ha intercettato un determinato evento)
+    Abbiamo tre modi per associare eventi e handler:
+    </p>
+    <ul>
+        <li>Via codice js sfruttando una funzione <code> addEventListener</code></li>
+        <li>All'interno del markup HTML sfruttando speciali attributidei tag</li>
+        <li>Sempre nel codice js associando proprieta' degli elementi dom</li>
+    </ul>
+
+    <h3>addEventListener</h3>
+    <p>Sicuramente il modo migliore e piu comune per associare un evento al suo handler</p>
+    <p><b>Schema sintattico:</b></p>
+    <script>
+        elemento.addEventListener(evento, callback, [useCapture]);
+    </script>
+    <table>
+        <tr>
+            <th>parametro</th>
+            <th>Descrizione</th>
+        </tr>
+        <tr>
+            <td>evento</td>
+            <td>questa stringa ci definisce il tipo di evento che vogliamo gestire (es. "click" "load")</td>
+        </tr>
+        <tr>
+            <td>callback</td>
+            <td>Questo secondo parametro fa la chiamata | invocazione della funzione che dobbiamo attivare</td>
+        </tr>
+        <tr>
+            <td>useCapture</td>
+            <td>1. E' opzionale 2.E' usato raramente 3.Ha un valoer di default false
+                Si usa per forzare le priorita' di un certo evento
+                (ad esempio abbiamo associato piu handler allo stesso evento)
+            </td>
+        </tr>
+    </table>
+
+    <h3>Event</h3>
+    <p>Possiamo trovare a volte un parametro che abbiamo chiamato non a caso (event) (e) si tratta di un oggettoche contiene delle informazioni sull'evento
+        che e' stato scatenato (che bottone del mouse e' stato usato , quale tasto della tastiera e' stato schiacciato, in che punto e' stato fatto il click)
+    </p>
+    <h3>I vantaggi di usare addEventListener</h3>
+    <ul>
+        <li>Funziona su qualunque elemento del DOM</li>
+        <li>Possiamo gestire contemporaneamente piu funzioni per lo stesso evento</li>
+        <li>Possiamo intercettare piu eventi sullo stesso elemento</li>
+        <li>Possiamo anche rimuovere l'associazione tra evento e handler <code>removeEventListener</code></li>
+        <script>test.removeEventListener('click, clickOn')</script>
+    </ul>
+    <p>Abbiamo gia visto come usare js nei tag html: 
+        <a href="" onclick="alert('ciao')"></a>
+        <a href="javascript..."></a>
+        E' sconsigliabile associare eventi direttamente sull'html -> il layout della pagina (html) e la logica applicativa (js) devono stare separati
+        (poi con react potrebbe essere diverso) per ora separiamo che cos'e' qualcosa da che cosa fa.
+    </p>
+</body>
+</html>
