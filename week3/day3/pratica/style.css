@@ -1,10 +1,10 @@
 main {
-    border: 3px solid aqua;
+    border: 3px solid rgb(32, 2, 80);
     margin: auto;
     width:50%;
-    background-color: aquamarine;
+    background-color:white;
     padding:3em;
-    box-shadow: 5px 5px #8888887e;
+    /* box-shadow: 5px 5px #8888887e; */
     border-radius: 20px;
 }
 
@@ -26,7 +26,7 @@ body {
 
 input {
     width: 50%;
-    border: none;
+    border:2px solid rgb(32, 2, 80);
     border-radius: 20px;
     background-color:aliceblue;
     padding:1em;
@@ -37,18 +37,17 @@ button {
     margin-left: 3em;
     border:none;
     border-radius:20px;
-    background-color: rgb(32, 2, 80);
-    color:white;
+    background-color: #70F0F2;
+    color: rgb(32, 2, 80);
     padding: 1em;
 }
 
-p {
-    border: 3px solid aqua;
+P {
+    border: 2px solid rgb(32, 2, 80);
     margin:1em auto;
     width:50%;
-    background-color: aquamarine;
+    background-color: #CAE0E5;
     padding:1em;
-    box-shadow: 5px 5px #8888887e;
     border-radius: 20px;
     text-align: left;
     color:  rgb(32, 2, 80);
@@ -58,5 +57,20 @@ p {
 
 .completed {
     text-decoration: line-through;
-    background-color: rgb(0, 116, 116)marine;
+    background-color:rgb(161, 159, 159);
+}
+
+.rimuovi {
+    FLOAT: right;
+    color:rgb(32, 2, 80);
+    width:30px;
+    height: 30px;
+    border-radius: 5px;
+    margin:0;
+    background-color:red ;
+
+}
+
+.rimuovi p{
+    margin:0;
 }
