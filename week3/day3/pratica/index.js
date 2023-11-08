@@ -25,29 +25,31 @@ const addTask = function () {
         alert("fai qualcosa")
     } else {
         tasks.appendChild(div);
-        div.appendChild(paragrafo);
+        div.appendChild(paragrafo);                 //era meglio usare template literals
         paragrafo.appendChild(button);
+        paragrafo.classList.add('para')
         button.classList.add('rimuovi');
     }
     testo.value = '';
 }
 
 const attachComplete = function () {
-    //aggancia gli elementi html
-    const completed = document.querySelectorAll('div');
-    const p = document.querySelectorAll('p')
+    
+    const p = document.getElementsByClassName('para')
 
-    //li ciclo con for
+    
     for (let i = 0; i < p.length; i++) {
-        completed[i].addEventListener('click', function () {
-            
-            p[i].classList.toggle("completed");
+       
+        p[i].addEventListener('click', function () {
+            /* if (!this.classList.contains('completed')) {
+                this.classList.add('completed');
+            } else {
+                this.classList.remove('completed');
+            }  */
+            this.classList.toggle('completed');
         })
 
     }
-    //all'elemento che seleziono aggiunge|toglie una classe (toggle)
-    //attributo js this per leggere il contenuto 
-    //css -> text-decoration: line-through;
 }
 
 const attachDelete = function () {
