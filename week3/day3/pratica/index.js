@@ -29,28 +29,35 @@ const addTask = function () {
         paragrafo.appendChild(button);
         paragrafo.classList.add('para')
         button.classList.add('rimuovi');
+        
+        paragrafo.addEventListener('click', function () { //aggiunto l'event listener direttemente alla creazione dell'elemento
+            this.classList.toggle('completed');
+        });
+
     }
     testo.value = '';
 }
 
-const attachComplete = function () {
+/* const attachComplete = function () {
     
     const p = document.getElementsByClassName('para')
 
     
     for (let i = 0; i < p.length; i++) {
        
-        p[i].addEventListener('click', function () {
+        p[i].addEventListener('click', function () {    
+            this.classList.toggle('completed');
+
             /* if (!this.classList.contains('completed')) {
                 this.classList.add('completed');
             } else {
                 this.classList.remove('completed');
             }  */
-            this.classList.toggle('completed');
-        })
+            
+       /* })
 
     }
-}
+} */
 
 const attachDelete = function () {
     //aggancia gli elementi html
