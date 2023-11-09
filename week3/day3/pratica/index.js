@@ -38,41 +38,41 @@ const addTask = function () {
     testo.value = '';
 }
 
-/* const attachComplete = function () {
+/*  const attachComplete = function () {
     
     const p = document.getElementsByClassName('para')
 
     
     for (let i = 0; i < p.length; i++) {
-       
-        p[i].addEventListener('click', function () {    
+    
+        p[i].addEventListener('click', function () {  
+            
             this.classList.toggle('completed');
-
+            
             /* if (!this.classList.contains('completed')) {
                 this.classList.add('completed');
             } else {
                 this.classList.remove('completed');
             }  */
             
-       /* })
+    /*})
 
     }
-} */
+}  */
 
-const attachDelete = function () {
+const attachDelete = () => {
     //aggancia gli elementi html
     const tasks = document.querySelectorAll('div');
-    const rimuovi = document.getElementsByClassName('rimuovi')
+    const rimuovi = document.getElementsByClassName('rimuovi');
     //ciclo for
     for (let i = 0; i < tasks.length; i++) {
         rimuovi[i].addEventListener('click', function () {
-            
+
             tasks[i].remove();
-        })
+        });
 
     }
     //metodo per rimuovere qualcpsa -> .remove()
-    
 }
 
 window.onload = function () {
