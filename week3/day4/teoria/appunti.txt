@@ -1,0 +1,15 @@
+1. struttura html e css del calendario 
+2. struttura html e css del form
+3.recupero il mese e lo stampo
+
+4.recuperare quanti giorni ci sono nel mese
+    creo i giorni
+
+5.al click ->
+    sposto selected
+    il numero viene copiato sotto
+    se ci sono appuntamenti su quel giorno li stampo
+    
+6. stampo appuntamenti (+ html + css)
+7. invio form
+8. se c'e' qualcods sggiungo pallino dot
