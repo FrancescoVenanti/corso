@@ -504,7 +504,9 @@ const isItPrime = function (num) {
   }
   return true;
 }
-console.log(isItPrime(113));
+//console.log(isItPrime(113));
+
+
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
 
 const movies = [
