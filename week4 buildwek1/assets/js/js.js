@@ -99,7 +99,7 @@ const questions = [
   ];
 
 let punteggio = 0; //variabile globale del punteggio
-
+let index = 0; //indice della domanda
 
 // ------------------------- timer
 let i = 59;
@@ -115,41 +115,77 @@ const timer = function () {
 const interval1 = setInterval(timer, 1000);
 
 // ------------------- genera domande e risposte
-let indice = 2;
 const generaDomanda = function (arr, indice) {
+    const divRisposte = document.querySelector('.risposte');
+    for (let i=0; i<=arr[indice].incorrect_answers.length; i++) {
+        const risposte = document.createElement('button');
+        risposte.classList.add('bottoneRisposta');
+        divRisposte.appendChild(risposte);
+    }
     const domanda = document.getElementById('domanda');
-    const risposte = document.querySelectorAll('.bottoneRisposta');
-    
+    //const risposte = document.querySelectorAll('.bottoneRisposta');
+    risposte = document.getElementsByClassName('bottoneRisposta');
     domanda.innerHTML = arr[indice].question;
 
-    rispIndex = Math.floor(Math.random()*4);
+    if (arr[indice].incorrect_answers.length == 3) {
+        rispIndex = Math.floor(Math.random()*4);
 
-    risposte[rispIndex].innerHTML = arr[indice].correct_answer; //assegnazione risposta corretta
+        risposte[rispIndex].innerHTML = arr[indice].correct_answer; //assegnazione risposta corretta
 
-    //assegnazione risposta sbagliata
-    switch (rispIndex) {
-        case 0: risposte[1].innerHTML = arr[indice].incorrect_answers[0];
-        risposte[2].innerHTML = arr[indice].incorrect_answers[1];
-        risposte[3].innerHTML = arr[indice].incorrect_answers[2];
-        break;
+        //assegnazione risposta sbagliata
+        switch (rispIndex) {
+            case 0: risposte[1].innerHTML = arr[indice].incorrect_answers[0];
+            risposte[2].innerHTML = arr[indice].incorrect_answers[1];
+            risposte[3].innerHTML = arr[indice].incorrect_answers[2];
+            break;
 
-        case 1: risposte[0].innerHTML = arr[indice].incorrect_answers[0];
-        risposte[2].innerHTML = arr[indice].incorrect_answers[1];
-        risposte[3].innerHTML = arr[indice].incorrect_answers[2];
-        break;
+            case 1: risposte[0].innerHTML = arr[indice].incorrect_answers[0];
+            risposte[2].innerHTML = arr[indice].incorrect_answers[1];
+            risposte[3].innerHTML = arr[indice].incorrect_answers[2];
+            break;
 
-        case 2: risposte[0].innerHTML = arr[indice].incorrect_answers[0];
-        risposte[1].innerHTML = arr[indice].incorrect_answers[1];
-        risposte[3].innerHTML = arr[indice].incorrect_answers[2];
-        break;
+            case 2: risposte[0].innerHTML = arr[indice].incorrect_answers[0];
+            risposte[1].innerHTML = arr[indice].incorrect_answers[1];
+            risposte[3].innerHTML = arr[indice].incorrect_answers[2];
+            break;
 
-        case 3: risposte[0].innerHTML = arr[indice].incorrect_answers[0];
-        risposte[2].innerHTML = arr[indice].incorrect_answers[1];
-        risposte[1].innerHTML = arr[indice].incorrect_answers[2];
-        break;
+            case 3: risposte[0].innerHTML = arr[indice].incorrect_answers[0];
+            risposte[2].innerHTML = arr[indice].incorrect_answers[1];
+            risposte[1].innerHTML = arr[indice].incorrect_answers[2];
+            break;
+            default: console.log('errore');
+        }
+    } else {
+        rispIndex = Math.floor(Math.random()*2);
+        risposte[rispIndex].innerHTML = arr[indice].correct_answer;
+        switch (rispIndex) {
+            case 0: risposte[1].innerHTML = arr[indice].incorrect_answers[0];
+            break;
+            case 1: risposte[0].innerHTML = arr[indice].incorrect_answers[0];
+            break;
+        }
     }
-
+    index = index + 1;  //aggiorna index domanda
 }
 
-generaDomanda(questions, indice);
+
+
+generaDomanda(questions, index);
+
+const premiTasti = function () {
+    const pulsanti = document.querySelectorAll('.bottoneRisposta');
+    pulsanti.forEach(element => {
+        element.remove();
+    })
+    //parte genera domanda
+    generaDomanda(questions, index)
+    
+
+    //parte il timer
+    i=59;
+    interval1();
+}
+const pulsanti = document.querySelectorAll('.bottoneRisposta');
+pulsanti.forEach(element => {
+    addEventListener('click', premiTasti)});
 
