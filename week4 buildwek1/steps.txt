@@ -1,0 +1,22 @@
+prima pagina
+    header con logo
+div container
+    h1 con span
+    div con istruzioni e lista
+    form con checkbox (required) e pulsante (link su html, poi se c'e' tempo in js)
+immagine background-image (poi se abbiamo tempo backgraund-gradient)
+
+javascript
+    timer
+    popolare la pagina (domanda e risposte)
+    cliccando su un bottone va avanti
+            cambia colore (verde giusto rosso sbagliato)
+            se la risposta e' giusta aumenta di uno
+            se e' sbagliata aumenta di zero
+            fa ripartire il timer
+            cambia domanda 
+            aggiorna il numero del footer
+    
+
+
+            
