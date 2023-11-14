@@ -107,7 +107,7 @@ const timer = function () {
     const timerPar = document.getElementById('timer');
     timerPar.innerText = i;
     if (i<=0) {
-        clearInterval(interval1);
+        premiTasti();
     }
     i--;
 }
@@ -131,6 +131,7 @@ const generaDomanda = function (arr, indice) {
         rispIndex = Math.floor(Math.random()*4);
 
         risposte[rispIndex].innerHTML = arr[indice].correct_answer; //assegnazione risposta corretta
+        risposte[rispIndex].classList.add('corretta');
 
         //assegnazione risposta sbagliata
         switch (rispIndex) {
@@ -158,6 +159,7 @@ const generaDomanda = function (arr, indice) {
     } else {
         rispIndex = Math.floor(Math.random()*2);
         risposte[rispIndex].innerHTML = arr[indice].correct_answer;
+        risposte[rispIndex].classList.add('corretta');
         switch (rispIndex) {
             case 0: risposte[1].innerHTML = arr[indice].incorrect_answers[0];
             break;
@@ -168,24 +170,42 @@ const generaDomanda = function (arr, indice) {
     index = index + 1;  //aggiorna index domanda
 }
 
+  generaDomanda(questions, index)
+  
 
-
-generaDomanda(questions, index);
 
 const premiTasti = function () {
+  setTimeout(function () {
+
     const pulsanti = document.querySelectorAll('.bottoneRisposta');
     pulsanti.forEach(element => {
         element.remove();
     })
     //parte genera domanda
     generaDomanda(questions, index)
-    
+    rendiCliccabile()
+    segnaPunti()
 
     //parte il timer
     i=59;
-    interval1();
-}
-const pulsanti = document.querySelectorAll('.bottoneRisposta');
-pulsanti.forEach(element => {
-    addEventListener('click', premiTasti)});
+    interval1;
 
+    },500)
+}
+
+const rendiCliccabile = function () {
+  const pulsanti = document.querySelectorAll('.bottoneRisposta');
+  pulsanti.forEach(element => {
+  element.addEventListener('click', premiTasti)});
+}
+rendiCliccabile()
+
+const segnaPunti = function () {
+  const corretto = document.querySelector('.corretta');
+  corretto.addEventListener('click', function () {
+    punteggio ++;
+    corretto.setAttribute('style', 'background-color:green;')
+    console.log(punteggio)
+  })
+}
+segnaPunti()
