@@ -177,12 +177,13 @@ const generaDomanda = function (arr, indice) {
 const premiTasti = function () {
   setTimeout(function () {
 
-    //if (index < questions.length)
-
     const pulsanti = document.querySelectorAll('.bottoneRisposta');
     pulsanti.forEach(element => {
         element.remove();
     })
+
+    if (index < questions.length) {
+
     //parte genera domanda
     generaDomanda(questions, index)
     rendiCliccabile()
@@ -192,6 +193,12 @@ const premiTasti = function () {
     //parte il timer
     i=59;
     interval1;
+
+    } else {
+      clearInterval(interval1);
+      generaRisultati();
+    }
+
 
     },500)
 }
@@ -219,3 +226,60 @@ const aggiornaDomanda = function (arr) {
 }
 aggiornaDomanda(questions);
 
+const generaRisultati = function () {
+  const par = document.getElementById('nDomanda');
+  par.remove();
+  const timer = document.getElementById('timer');
+  timer.remove();
+
+  const titolo = document.getElementById('domanda');
+  titolo.innerText = 'Results'
+
+  const sottoTitolo = document.getElementById('sottoTitolo')
+  sottoTitolo.innerText = 'The summary of your answers:'
+
+  const corpoCentrale = document.querySelector('.risposte');
+  corpoCentrale.classList.add('centraleFlex')
+
+  const div1 = document.createElement('div')
+  corpoCentrale.appendChild(div1);
+  const corrette = document.createElement('h2');
+  div1.appendChild(corrette);
+  corrette.innerHTML = 'Correct' +'<br>' +'<strong>' +(punteggio/questions.length)*100 +'</strong>' +'%'
+  const par1 = document.createElement('p');
+  par1.innerHTML = punteggio +'/' +questions.length +' questions';
+  div1.appendChild(par1);
+
+  const div2 = document.createElement('div')
+  corpoCentrale.appendChild(div2)
+  div2.classList.add('cerchio');
+  const par2 = document.createElement('p');
+  const parBlu = document.createElement('p');
+  const parPiccolo = document.createElement('p');
+  parBlu.setAttribute('style', 'color:#00ffff');
+  parPiccolo.setAttribute('style', 'font-size:12px')
+  div2.appendChild(par2)
+  div2.appendChild(parBlu)
+  div2.appendChild(parPiccolo)
+  let pass = (questions.length/100)*60;
+  if (punteggio >= pass) {
+    par2.innerHTML = '<strong> Congratulations! </strong>' 
+    parBlu.innerHTML ='<strong>You passed the exam.</strong>'
+    parPiccolo.innerHTML = "We'll send you the certificate in few minutes. check your emeail (including promotions / spam folder"
+  } else {
+    par2.innerHTML = '<strong>Non erano questi gli accordi!</strong>'
+    parBlu.innerHTML ="<strong>You didn't passed the exam.</strong>"
+  }
+
+
+  const div3 = document.createElement('div')
+  const sbagliate = document.createElement('h2')
+  let rispSbagliate = questions.length - punteggio;
+  sbagliate.innerHTML = 'Wrong' +'<br>' +'<strong>' +(rispSbagliate/questions.length)*100 +'</strong>' +'%';
+  corpoCentrale.appendChild(div3);
+  div3.appendChild(sbagliate)
+  const par3 = document.createElement('p');
+  par3.innerHTML = rispSbagliate +'/' +questions.length +' questions';
+  div3.appendChild(par3);
+  
+}

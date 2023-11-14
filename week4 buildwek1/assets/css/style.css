@@ -102,6 +102,20 @@ input[type="checkbox"] {
     color:#d20094;
 }
 
+.centraleFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cerchio {
+    border-radius: 50%;
+    border: 30px solid  #00ffff;
+    width: 200px;
+    height: 200px;
+    padding: 30px;
+}
+
 #procedi {
     border:none;
     background-color: #00ffff;
