@@ -10,12 +10,20 @@ javascript
     timer
     popolare la pagina (domanda e risposte)
     cliccando su un bottone va avanti
-            cambia colore (verde giusto rosso sbagliato)
-            se la risposta e' giusta aumenta di uno
-            se e' sbagliata aumenta di zero
+            cambia colore (verde giusto rosso sbagliato) -
+            se la risposta e' giusta aumenta di uno -
+            se e' sbagliata aumenta di zero - 
             fa ripartire il timer -
             cambia domanda -
-            aggiorna il numero del footer
+            aggiorna il numero del footer -
+
+
+bottone pagina 3
+stelle pagina 4
+timer
+gradiente bordo risultato
+checkbox pagina 1 
+rendere cliccabili i bottoni
     
 
 

@@ -271,7 +271,6 @@ const generaRisultati = function () {
     parBlu.innerHTML ="<strong>You didn't passed the exam.</strong>"
   }
 
-
   const div3 = document.createElement('div')
   const sbagliate = document.createElement('h2')
   let rispSbagliate = questions.length - punteggio;
@@ -281,5 +280,13 @@ const generaRisultati = function () {
   const par3 = document.createElement('p');
   par3.innerHTML = rispSbagliate +'/' +questions.length +' questions';
   div3.appendChild(par3);
+
+  const rateUs = document.createElement('button');
+  rateUs.classList.add('rateUs')
+  rateUs.innerHTML = '<a href="./finale.html">Rate us<a>'
+  const footer = document.querySelector('footer');
+  footer.remove();
+  const container = document.querySelector('#container');
+  container.appendChild(rateUs)
   
 }
