@@ -281,9 +281,10 @@ const generaRisultati = function () {
   par3.innerHTML = rispSbagliate +'/' +questions.length +' questions';
   div3.appendChild(par3);
 
-  const rateUs = document.createElement('button');
+  const rateUs = document.createElement('a');
   rateUs.classList.add('rateUs')
-  rateUs.innerHTML = '<a href="./finale.html">Rate us<a>'
+  rateUs.setAttribute('href', './finale.html');
+  rateUs.innerHTML = 'Rate us'
   const footer = document.querySelector('footer');
   footer.remove();
   const container = document.querySelector('#container');
