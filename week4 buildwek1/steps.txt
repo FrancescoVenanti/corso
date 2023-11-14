@@ -18,12 +18,12 @@ javascript
             aggiorna il numero del footer -
 
 
-bottone pagina 3
-stelle pagina 4
+
+
 timer
 gradiente bordo risultato
 checkbox pagina 1 
-rendere cliccabili i bottoni
+aggiungere colore rosso su risposte sbagliate
     
 
 
