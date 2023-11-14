@@ -177,6 +177,8 @@ const generaDomanda = function (arr, indice) {
 const premiTasti = function () {
   setTimeout(function () {
 
+    //if (index < questions.length)
+
     const pulsanti = document.querySelectorAll('.bottoneRisposta');
     pulsanti.forEach(element => {
         element.remove();
@@ -185,6 +187,7 @@ const premiTasti = function () {
     generaDomanda(questions, index)
     rendiCliccabile()
     segnaPunti()
+    aggiornaDomanda(questions);
 
     //parte il timer
     i=59;
@@ -209,3 +212,10 @@ const segnaPunti = function () {
   })
 }
 segnaPunti()
+
+const aggiornaDomanda = function (arr) {
+  const par = document.getElementById('nDomanda');
+  par.innerHTML = 'question ' + index +'<span class="pink"> / 10</span>';
+}
+aggiornaDomanda(questions);
+
