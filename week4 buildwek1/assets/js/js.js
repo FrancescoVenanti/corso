@@ -101,51 +101,58 @@ const questions = [
 let punteggio = 0; //variabile globale del punteggio
 let index = 0; //indice della domanda
 
-// ------------------------- timer
-let i = 59;
+// ------------------------- timer -------------------------------
+let i = 59; //i rappresenta i secondi rimanenti
 const timer = function () {
+    // abbiamo diviso timer in due div per creare l'effetto visivo del tempo che diminuisce
     const timerPar = document.getElementById('timerPiccolo');
     const timerGrande = document.getElementById('timer');
-    let gradiTimer = ((i * 360) /60)
-    timerGrande.setAttribute('style', `background-image: conic-gradient(#7c4f7e 0deg, #7c4f7e ${gradiTimer}deg, #00ffff ${gradiTimer}deg, #00ffff 360deg)`)
-    
+    let gradiTimer = ((i * 360) /60) //formula per definire a quandi gradi del cerchio corrisponde lo scorrere del tempo
+    // settiamo il gradiente per l'effetto del timer
+    timerGrande.setAttribute('style', `background-image: conic-gradient(#7c4f7e 0deg, #7c4f7e ${gradiTimer}deg, #00ffff ${gradiTimer}deg, #00ffff 360deg)`) 
+    // html interno del timer con i secondi che si aggiornano
     timerPar.innerHTML =
     `<p>Seconds</p>
     <p style="font-size:30px">${i}</p>
     <p>remaining</p>`;
 
+    // allo scadere del tempo fa partire la funzione che cambia domanda
     if (i<=0) {
         premiTasti();
     }
     i--;
 }
 
-const interval1 = setInterval(timer, 1000);
+const interval1 = setInterval(timer, 1000); //intervallo di un secondo per simulare il timer
 
-// ------------------- genera domande e risposte
+// ------------------- genera domande e risposte --------------------------------
+//funzione che genera la domanda e le risposte, prendme come parametri un array e un indice (inizializzato a inizio pagina)
 const generaDomanda = function (arr, indice) {
-    const divRisposte = document.querySelector('.risposte');
+
+    const divRisposte = document.querySelector('.risposte'); //selezioniamo il div risposte 
+    //per ogni risposta sbagliata + 1 creiamo un bottone
     for (let i=0; i<=arr[indice].incorrect_answers.length; i++) {
         const risposte = document.createElement('button');
-        risposte.classList.add('sbagliata');
-        risposte.classList.add('bottoneRisposta');
-        divRisposte.appendChild(risposte);
+        risposte.classList.add('sbagliata');  //aggiungiamo la classe .sbagliata a tutti (che poi andremo a rimuovere)
+        risposte.classList.add('bottoneRisposta');  //aggiungiamo la classe bottone risposta per lo stile
+        divRisposte.appendChild(risposte); //mettiamo ogni bottone dentro al div risposte
     }
-    const domanda = document.getElementById('domanda');
-    //const risposte = document.querySelectorAll('.bottoneRisposta');
-    risposte = document.getElementsByClassName('bottoneRisposta');
-    domanda.innerHTML = arr[indice].question;
+    
+    const domanda = document.getElementById('domanda'); //selezioniamo l'elemento con id domanda 
+    risposte = document.getElementsByClassName('bottoneRisposta');  //selezioniamo gli elementi con classe bottoneRisposta creati in precedenza
+    domanda.innerHTML = arr[indice].question; //inseriamo la domanda nell'h2
 
+    //se le risposte sbagliate sono 3 la risposta corretta potra' andare in modo randomico in uno dei 4 bottoni
     if (arr[indice].incorrect_answers.length == 3) {
-        rispIndex = Math.floor(Math.random()*4);
+        rispIndex = Math.floor(Math.random()*4); //funzione per prendere un numero random tra 0 e 3
 
         risposte[rispIndex].innerHTML = arr[indice].correct_answer; //assegnazione risposta corretta
-        risposte[rispIndex].classList.remove('sbagliata');
-        risposte[rispIndex].classList.add('corretta');
+        risposte[rispIndex].classList.remove('sbagliata'); //rimuove la classe risposta sbagliata perche la risposta inserita e' quella giusta
+        risposte[rispIndex].classList.add('corretta');  //aggiunge la classe corretta
 
-        //assegnazione risposta sbagliata
+        //assegnazione risposta sbagliata - in base al valore che rispIndex (risposta giusta) assume popoliamo gli altri bottoni
         switch (rispIndex) {
-            case 0: risposte[1].innerHTML = arr[indice].incorrect_answers[0];
+            case 0: risposte[1].innerHTML = arr[indice].incorrect_answers[0]; 
             risposte[2].innerHTML = arr[indice].incorrect_answers[1];
             risposte[3].innerHTML = arr[indice].incorrect_answers[2];
             break;
@@ -166,36 +173,37 @@ const generaDomanda = function (arr, indice) {
             break;
             default: console.log('errore');
         }
-    } else {
-        rispIndex = Math.floor(Math.random()*2);
-        risposte[rispIndex].innerHTML = arr[indice].correct_answer;
+    } else { //se invece la risposta sbagliata e' solo una, faremo lo stesso procedimento ma con solo due bottoni
+        rispIndex = Math.floor(Math.random()*2); //genera numero casuale tra 0 e 1
+        risposte[rispIndex].innerHTML = arr[indice].correct_answer; //assegna risposta corretta
         risposte[rispIndex].classList.remove('sbagliata');
         risposte[rispIndex].classList.add('corretta');
-        switch (rispIndex) {
+        switch (rispIndex) { // assegna risposta sbagliata
             case 0: risposte[1].innerHTML = arr[indice].incorrect_answers[0];
             break;
             case 1: risposte[0].innerHTML = arr[indice].incorrect_answers[0];
             break;
         }
     }
-    index = index + 1;  //aggiorna index domanda
+    index = index + 1;  //aggiorna indice della domanda
 }
 
-  generaDomanda(questions, index)
+  generaDomanda(questions, index) //chiamiamo la funzione per popolare la pagina quando viene caricata
   
 
-
+// lancia le funzioni necessario al momento del click su una delle risposte
 const premiTasti = function () {
-  setTimeout(function () {
+  setTimeout(function () { //delay di 0.5 secondi per mostrare un feedback sulla risposta (giusta, sbagliata)
 
-    const pulsanti = document.querySelectorAll('.bottoneRisposta');
-    pulsanti.forEach(element => {
-        element.remove();
+    const pulsanti = document.querySelectorAll('.bottoneRisposta'); //rimuove i bottoni precedentementi creati per far spazio ai nuovi
+    pulsanti.forEach(element => { 
+        element.remove(); //per ogni pulsante che trova elimina completamente l'elemento
     })
 
-    if (index < questions.length) {
+    // se l'indice della domanda e' inferiore al numero delle domande continuera' a generare domande aumentando l'indice ad ogni click
+    if (index < questions.length) { 
 
-    //parte genera domanda
+    //chiamata alle funzioni necessarie
     generaDomanda(questions, index)
     rendiCliccabile()
     segnaPunti()
@@ -206,15 +214,16 @@ const premiTasti = function () {
     i=59;
     interval1;
 
-    } else {
+    } else { //se le domande sono finite elimina il timer e genera la terza pagina (con la funzione generaRisultati)
       clearInterval(interval1);
       generaRisultati();
     }
 
 
-    },500)
+    },500) //mezzo secondo di delay
 }
 
+// funzione che aggiunge l'event listener ad ogni bottone, al click fa partire la funzione premiTasti 
 const rendiCliccabile = function () {
   const pulsanti = document.querySelectorAll('.bottoneRisposta');
   pulsanti.forEach(element => {
@@ -222,16 +231,17 @@ const rendiCliccabile = function () {
 }
 rendiCliccabile()
 
+//funzione che aggiunge un punto ogni volta che clicchiamo sul bottone con la classe .corretta
 const segnaPunti = function () {
   const corretto = document.querySelector('.corretta');
   corretto.addEventListener('click', function () {
     punteggio ++;
-    corretto.setAttribute('style', 'background-color:green;')
-    console.log(punteggio)
+    corretto.setAttribute('style', 'background-color:green;') //il bottone se premuto cambiera il suo colore di background in verde
   })
 }
 segnaPunti()
 
+//funzione che fa cambiare il background color delle risposte sbagliate una volta premute
 const sbagliate = function () {
   const sbagliata = document.querySelectorAll('.sbagliata');
   sbagliata.forEach(el => {
@@ -242,49 +252,54 @@ const sbagliate = function () {
 }
 sbagliate()
 
+//funziona che cambia il numero della domanda mostrato a fine pagina
 const aggiornaDomanda = function (arr) {
   const par = document.getElementById('nDomanda');
   par.innerHTML = 'question ' + index +'<span class="pink"> / 10</span>';
 }
 aggiornaDomanda(questions);
 
+//funzione che genera la pagina dei risultati in base al risultato ottenuto
 const generaRisultati = function () {
   const par = document.getElementById('nDomanda');
-  par.remove();
+  par.remove();         //rimuove il conteggio delle domande a fondo pagina
   const timer = document.getElementById('timer');
-  timer.remove();
+  timer.remove();       //rimuove il timer
 
   const contenitore = document.getElementById('container')
-  contenitore.setAttribute('style', 'margin-top:2em;')
+  contenitore.setAttribute('style', 'margin-top:2em;') //diamo un po di margine al contenitore principale
 
   const titolo = document.getElementById('domanda');
-  titolo.innerText = 'Results'
+  titolo.innerText = 'Results' //a posto della domanda mettiamo il titolo della pagina
 
   const sottoTitolo = document.getElementById('sottoTitolo')
-  sottoTitolo.innerText = 'The summary of your answers:'
+  sottoTitolo.innerText = 'The summary of your answers:' //aggiungiamo un sottotitolo
 
   const corpoCentrale = document.querySelector('.risposte');
-  corpoCentrale.classList.add('centraleFlex')
+  corpoCentrale.classList.add('centraleFlex') // aggiungiamo la classe centraleFlex per dividere il contenuto in tre parti
 
+  // prima parte del corpo centrale (risposte giuste)
   const div1 = document.createElement('div')
   corpoCentrale.appendChild(div1);
   const corrette = document.createElement('h2');
   div1.appendChild(corrette);
-  corrette.innerHTML = 'Correct' +'<br>' +'<strong>' +(punteggio/questions.length)*100 +'</strong>' +'%'
+  corrette.innerHTML = 'Correct' +'<br>' +'<strong>' +(punteggio/questions.length)*100 +'</strong>' +'%' //calcoliamo la percentuale di risposte giuste dato il punteggio
   const par1 = document.createElement('p');
   par1.innerHTML = punteggio +'/' +questions.length +' questions';
   div1.appendChild(par1);
 
-  const div2 = document.createElement('div')
-  const div2Piccolo = document.createElement('div')
+  // seconda parte del corpo centrale con un indicatore grafico per le risposte giuste e sbagliate
+  const div2 = document.createElement('div')        // cerchio piu grande che diventa celeste in base alle risposte corrette e rosa in base a quelle sbagliate
+  const div2Piccolo = document.createElement('div') // cerchio piu piccollo che riprende il colore dello sfondo
   corpoCentrale.appendChild(div2);
   div2.appendChild(div2Piccolo);
   div2.classList.add('cerchio');
 
-  const gradi = 360 - ((punteggio * 360) / questions.length) //cerchio intorno a congratulations
-  div2.setAttribute('style', `background-image: conic-gradient(#d20094 0deg, #d20094 ${gradi}deg, #00ffff ${gradi}deg, #00ffff 360deg)`)
+  const gradi = 360 - ((punteggio * 360) / questions.length) //prendiamo il punteggio e calcoliamo a quanti gradi su 360 totali corrisponde in percentuale
+  //settiamo l'attributo background image in modo da mostrare un gradiente celeste fino ai gradi calcolati sopra e il resto rosa
+  div2.setAttribute('style', `background-image: conic-gradient(#d20094 0deg, #d20094 ${gradi}deg, #00ffff ${gradi}deg, #00ffff 360deg)`)  
 
-  div2Piccolo.classList.add('cerchioPiccolo');
+  div2Piccolo.classList.add('cerchioPiccolo'); //stile a cerchio piccolo
   const par2 = document.createElement('p');
   const parBlu = document.createElement('p');
   const parPiccolo = document.createElement('p');
@@ -294,15 +309,16 @@ const generaRisultati = function () {
   div2Piccolo.appendChild(parBlu)
   div2Piccolo.appendChild(parPiccolo)
   let pass = (questions.length/100)*60;
-  if (punteggio >= pass) {
+  if (punteggio >= pass) { //popolera' i paragrafi in un modo se il punteggio e' > del 60%
     par2.innerHTML = '<strong> Congratulations! </strong>' 
     parBlu.innerHTML ='<strong>You passed the exam.</strong>'
     parPiccolo.innerHTML = "We'll send you the certificate in few minutes. check your emeail (including promotions / spam folder"
-  } else {
+  } else { // in un altro modo altrimenti
     par2.innerHTML = '<strong>Non erano questi gli accordi!</strong>'
-    parBlu.innerHTML ="<strong>You didn't passed the exam.</strong>"
+    parBlu.innerHTML ="<strong>You didn't pass the exam.</strong>"
   }
 
+  //terza parte del corpo centrale (risposte sbagliate)
   const div3 = document.createElement('div')
   const sbagliate = document.createElement('h2')
   let rispSbagliate = questions.length - punteggio;
@@ -313,12 +329,13 @@ const generaRisultati = function () {
   par3.innerHTML = rispSbagliate +'/' +questions.length +' questions';
   div3.appendChild(par3);
 
+  //creiamo il link alla quarta pagina
   const rateUs = document.createElement('a');
   rateUs.classList.add('rateUs')
   rateUs.setAttribute('href', './finale.html');
   rateUs.innerHTML = 'Rate us'
   const footer = document.querySelector('footer');
-  footer.remove();
+  footer.remove(); //eliminiamo il footer 
   const container = document.querySelector('#container');
   container.appendChild(rateUs)
   
