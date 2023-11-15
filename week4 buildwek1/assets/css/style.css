@@ -60,15 +60,14 @@ svg {
     margin-bottom:3em ;
 }
 
-.illuminaStelle {
-    opacity:1;
-}
-
 input[type="checkbox"] {
     outline: 1px solid white;
     margin-right: 2em;
-    background-color: #002B4E !important;
-    color: black !important;
+    background-color: transparent;
+}
+
+.illuminaStelle {
+    opacity:1;
 }
 
 .condizioni {
@@ -108,13 +107,14 @@ input[type="checkbox"] {
 
 .centraleFlex {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
 .cerchio {
     border-radius: 50%;
     border: 30px solid  #00ffff;
+    border-image: linear-gradient(tO right, #0ff, #0ff 77%, #d20094 77% )1;
     width: 200px;
     height: 200px;
     padding: 30px;
@@ -177,3 +177,7 @@ footer {
     outline: none;
 }
 
+#sottoTitolo {
+    margin-bottom: 2em;
+    margin-top: -1.8em;
+}

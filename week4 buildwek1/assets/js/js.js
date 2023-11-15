@@ -119,6 +119,7 @@ const generaDomanda = function (arr, indice) {
     const divRisposte = document.querySelector('.risposte');
     for (let i=0; i<=arr[indice].incorrect_answers.length; i++) {
         const risposte = document.createElement('button');
+        risposte.classList.add('sbagliata');
         risposte.classList.add('bottoneRisposta');
         divRisposte.appendChild(risposte);
     }
@@ -131,6 +132,7 @@ const generaDomanda = function (arr, indice) {
         rispIndex = Math.floor(Math.random()*4);
 
         risposte[rispIndex].innerHTML = arr[indice].correct_answer; //assegnazione risposta corretta
+        risposte[rispIndex].classList.remove('sbagliata');
         risposte[rispIndex].classList.add('corretta');
 
         //assegnazione risposta sbagliata
@@ -159,6 +161,7 @@ const generaDomanda = function (arr, indice) {
     } else {
         rispIndex = Math.floor(Math.random()*2);
         risposte[rispIndex].innerHTML = arr[indice].correct_answer;
+        risposte[rispIndex].classList.remove('sbagliata');
         risposte[rispIndex].classList.add('corretta');
         switch (rispIndex) {
             case 0: risposte[1].innerHTML = arr[indice].incorrect_answers[0];
@@ -188,6 +191,7 @@ const premiTasti = function () {
     generaDomanda(questions, index)
     rendiCliccabile()
     segnaPunti()
+    sbagliate()
     aggiornaDomanda(questions);
 
     //parte il timer
@@ -219,6 +223,16 @@ const segnaPunti = function () {
   })
 }
 segnaPunti()
+
+const sbagliate = function () {
+  const sbagliata = document.querySelectorAll('.sbagliata');
+  sbagliata.forEach(el => {
+    el.addEventListener('click', function () {
+      el.setAttribute('style', 'background-color:red;')
+    })
+  })
+}
+sbagliate()
 
 const aggiornaDomanda = function (arr) {
   const par = document.getElementById('nDomanda');
@@ -256,8 +270,8 @@ const generaRisultati = function () {
   const par2 = document.createElement('p');
   const parBlu = document.createElement('p');
   const parPiccolo = document.createElement('p');
-  parBlu.setAttribute('style', 'color:#00ffff');
-  parPiccolo.setAttribute('style', 'font-size:12px')
+  parBlu.setAttribute('style', 'color:#00ffff; margin-top:-1em');
+  parPiccolo.setAttribute('style', 'font-size:12px;margin-top:2em')
   div2.appendChild(par2)
   div2.appendChild(parBlu)
   div2.appendChild(parPiccolo)

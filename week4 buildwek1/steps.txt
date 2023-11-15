@@ -23,7 +23,6 @@ javascript
 timer
 gradiente bordo risultato
 checkbox pagina 1 
-aggiungere colore rosso su risposte sbagliate
     
 
 
