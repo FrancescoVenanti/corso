@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Outfit:wght@400;700&display=swap');
 
 body {
-    background-image: url(../img/bg.jpg);
+    background: rgb(12,17,59);
+background: linear-gradient(117deg, rgba(12,17,59,1) 0%, rgba(46,22,88,1) 54%, rgba(65,24,104,1) 61%, rgba(43,17,85,1) 65%, rgba(94,35,115,1) 70%, rgba(75,27,101,1) 76%, rgba(110,42,117,1) 79%, rgba(110,42,117,1) 83%, rgba(12,17,59,1) 100%);
     background-size: cover;
     padding:2em 5em;
     font-family: 'Inter', sans-serif;
+    height: 100vh;
 }
 
 h1{
@@ -128,7 +130,7 @@ input[type="checkbox"] {
     border-radius: 50%;
     width: 320px;
     height: 320px;
-    background-color: #0C113B;
+    background-color: #2B1556;
     padding-top: 4em;
 }
 
@@ -190,7 +192,7 @@ footer {
     border-radius: 50%;
     width: 120px;
     height: 120px;
-    background-color: #6F2971;
+    background: radial-gradient(circle, rgba(101,36,104,1) 0%, rgba(12,17,59,1) 95%);
     display: flex;
     flex-direction: column;
     justify-content: center;
