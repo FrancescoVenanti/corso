@@ -104,8 +104,16 @@ let index = 0; //indice della domanda
 // ------------------------- timer
 let i = 59;
 const timer = function () {
-    const timerPar = document.getElementById('timer');
-    timerPar.innerText = i;
+    const timerPar = document.getElementById('timerPiccolo');
+    const timerGrande = document.getElementById('timer');
+    let gradiTimer = ((i * 360) /60)
+    timerGrande.setAttribute('style', `background-image: conic-gradient(#7c4f7e 0deg, #7c4f7e ${gradiTimer}deg, #00ffff ${gradiTimer}deg, #00ffff 360deg)`)
+    
+    timerPar.innerHTML =
+    `<p>Seconds</p>
+    <p style="font-size:30px">${i}</p>
+    <p>remaining</p>`;
+
     if (i<=0) {
         premiTasti();
     }
@@ -246,6 +254,9 @@ const generaRisultati = function () {
   const timer = document.getElementById('timer');
   timer.remove();
 
+  const contenitore = document.getElementById('container')
+  contenitore.setAttribute('style', 'margin-top:2em;')
+
   const titolo = document.getElementById('domanda');
   titolo.innerText = 'Results'
 
@@ -265,16 +276,23 @@ const generaRisultati = function () {
   div1.appendChild(par1);
 
   const div2 = document.createElement('div')
-  corpoCentrale.appendChild(div2)
+  const div2Piccolo = document.createElement('div')
+  corpoCentrale.appendChild(div2);
+  div2.appendChild(div2Piccolo);
   div2.classList.add('cerchio');
+
+  const gradi = 360 - ((punteggio * 360) / questions.length) //cerchio intorno a congratulations
+  div2.setAttribute('style', `background-image: conic-gradient(#d20094 0deg, #d20094 ${gradi}deg, #00ffff ${gradi}deg, #00ffff 360deg)`)
+
+  div2Piccolo.classList.add('cerchioPiccolo');
   const par2 = document.createElement('p');
   const parBlu = document.createElement('p');
   const parPiccolo = document.createElement('p');
   parBlu.setAttribute('style', 'color:#00ffff; margin-top:-1em');
   parPiccolo.setAttribute('style', 'font-size:12px;margin-top:2em')
-  div2.appendChild(par2)
-  div2.appendChild(parBlu)
-  div2.appendChild(parPiccolo)
+  div2Piccolo.appendChild(par2)
+  div2Piccolo.appendChild(parBlu)
+  div2Piccolo.appendChild(parPiccolo)
   let pass = (questions.length/100)*60;
   if (punteggio >= pass) {
     par2.innerHTML = '<strong> Congratulations! </strong>' 

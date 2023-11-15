@@ -23,6 +23,13 @@ javascript
 timer
 gradiente bordo risultato
 checkbox pagina 1 
+
+
+consigli prof
+    migliorie a classi e id 
+    migliorare script
+    sfondo con gradiente anziche immagine
+    commentare script javascript
     
 
 
