@@ -46,13 +46,13 @@
         </div>
 
         <script >
-            var diffSelezionata = 7;
-            var difficolta = document.getElementsByName('difficolta');
+            var diffSelezionata = 7; //inizializziamo la variabile a 7 come il radioButton che parte checked
+            var difficolta = document.getElementsByName('difficolta'); //prendiamo gli elementi con nome difficolta
             difficolta.forEach(el => {
-                el.addEventListener('click', function () {
-                    diffSelezionata = el.value;
+                el.addEventListener('click', function () { //ad ogni elemento aggiungiamo un event listener sul click che fa partire una funzione
+                    diffSelezionata = el.value; //assegna alla variabile il valore del radio selezionato 
                     console.log(diffSelezionata)
-                    localStorage.setItem("storageName",diffSelezionata);
+                    localStorage.setItem("storageName",diffSelezionata); //salva la variabile in locale per potervi accedere una volta cambiata pagina
                 })
             })
             

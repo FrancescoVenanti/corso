@@ -98,11 +98,14 @@ const questions = [
     },
   ];
 
+const results = [{},{},{},{},{},{},{},{},{},{}] //inizializzazione dell'array contenente le domande e risposte esatte
+
 let punteggio = 0; //variabile globale del punteggio
 let index = 0; //indice della domanda
 const difficolta = parseInt(localStorage.getItem("storageName")); //prendo la variabile difficolta passata dai radioButton della pagina precedente
 console.log(difficolta)
 questions.length = difficolta; // impostiamo la lunghezza dell'array in base al value della difficolta selezionata
+results.length = difficolta //anche l'array results avra la stessa lunghezza di questions
 
 // ------------------------- timer -------------------------------
 let i = 59; //i rappresenta i secondi rimanenti
@@ -135,11 +138,15 @@ const generaDomanda = function (arr, indice) {
     const divRisposte = document.querySelector('.risposte'); //selezioniamo il div risposte 
     //per ogni risposta sbagliata + 1 creiamo un bottone
     for (let i=0; i<=arr[indice].incorrect_answers.length; i++) {
+
         const risposte = document.createElement('button');
         risposte.classList.add('sbagliata');  //aggiungiamo la classe .sbagliata a tutti (che poi andremo a rimuovere)
         risposte.classList.add('bottoneRisposta');  //aggiungiamo la classe bottone risposta per lo stile
         divRisposte.appendChild(risposte); //mettiamo ogni bottone dentro al div risposte
     }
+
+    results[index].domanda = arr[index].question; // inseriamo la domanda nell'array risultati ogni volta che viene generata una nuova domanda
+    results[index].risposta_esatta = arr[index].correct_answer;// allo stesso modo inseriamo la risposta corretta
     
     const domanda = document.getElementById('domanda'); //selezioniamo l'elemento con id domanda 
     risposte = document.getElementsByClassName('bottoneRisposta');  //selezioniamo gli elementi con classe bottoneRisposta creati in precedenza
@@ -230,7 +237,11 @@ const premiTasti = function () {
 const rendiCliccabile = function () {
   const pulsanti = document.querySelectorAll('.bottoneRisposta');
   pulsanti.forEach(element => {
-  element.addEventListener('click', premiTasti)});
+  element.addEventListener('click', premiTasti)
+    element.addEventListener('click', function () {
+      results[index - 1].risposta_data = element.innerText // al click il testo dell'elemento cliccato viene inserito in risposta data.
+    })
+});
 }
 rendiCliccabile()
 
@@ -250,6 +261,7 @@ const sbagliate = function () {
   sbagliata.forEach(el => {
     el.addEventListener('click', function () {
       el.setAttribute('style', 'background-color:red;')
+      
     })
   })
 }
@@ -260,7 +272,8 @@ const aggiornaDomanda = function (arr) {
   const par = document.getElementById('nDomanda');
   par.innerHTML = 'question ' + index +'<span class="pink"> / ' +difficolta +'</span>';
 }
-aggiornaDomanda(questions);
+aggiornaDomanda()
+
 
 //funzione che genera la pagina dei risultati in base al risultato ottenuto
 const generaRisultati = function () {
@@ -340,7 +353,38 @@ const generaRisultati = function () {
   const footer = document.querySelector('footer');
   footer.remove(); //eliminiamo il footer 
   const container = document.querySelector('#container');
-  container.appendChild(rateUs)
-  
+  container.appendChild(rateUs) 
+
+  // ------------- riepilogo risposte date ------------
+  const divRiepilogo = document.createElement('div')
+  divRiepilogo.classList.add('divRiepilogo');
+  container.appendChild(divRiepilogo)
+  const riepilogo = document.createElement('h3');
+  riepilogo.innerText = 'Test recap:';
+  divRiepilogo.appendChild(riepilogo)
+  for (let i = 0; i < results.length; i++) {
+    const res1 = document.createElement('p');
+    const res2 = document.createElement('p');
+    const res3 = document.createElement('p');
+    res1.innerHTML = '<strong>Question ' +(i+1) +': </strong>' +results[i].domanda;
+    res2.innerHTML = '<strong>Your answer: </strong>' +results[i].risposta_data;
+    if (results[i].risposta_data !== results[i].risposta_esatta) {
+      res2.setAttribute('style', 'color:red');
+    }
+    res3.innerHTML = '<strong>Correct answer: </strong>' +results[i].risposta_esatta +'<hr><br>'
+    divRiepilogo.appendChild(res1)
+    divRiepilogo.appendChild(res2)
+    divRiepilogo.appendChild(res3)
+  }
+  const divSotto = document.createElement('div')
+  divRiepilogo.appendChild(divSotto);
+  const top = document.createElement('p');
+  top.innerHTML = '<a href="#">Back To Top</a>'
+  divSotto.appendChild(top)
+
+  const rifai = document.createElement('p');
+  rifai.innerHTML = '<a href="index.html">Retake the test</a>'
+  divSotto.appendChild(rifai)
+  console.log(results);
 }
 
