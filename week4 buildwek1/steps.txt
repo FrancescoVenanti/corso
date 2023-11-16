@@ -30,6 +30,13 @@ consigli prof
     migliorare script
     sfondo con gradiente anziche immagine
     commentare script javascript
+
+    presentazione 3.50
+        -organizzazione lavoro
+        -presentazione strutturata
+            -su chrome prima
+            -html e css velocemente
+            -javascript dettagliato
     
 
 

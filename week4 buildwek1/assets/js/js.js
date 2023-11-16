@@ -100,6 +100,9 @@ const questions = [
 
 let punteggio = 0; //variabile globale del punteggio
 let index = 0; //indice della domanda
+const difficolta = parseInt(localStorage.getItem("storageName")); //prendo la variabile difficolta passata dai radioButton della pagina precedente
+console.log(difficolta)
+questions.length = difficolta; // impostiamo la lunghezza dell'array in base al value della difficolta selezionata
 
 // ------------------------- timer -------------------------------
 let i = 59; //i rappresenta i secondi rimanenti
@@ -255,7 +258,7 @@ sbagliate()
 //funziona che cambia il numero della domanda mostrato a fine pagina
 const aggiornaDomanda = function (arr) {
   const par = document.getElementById('nDomanda');
-  par.innerHTML = 'question ' + index +'<span class="pink"> / 10</span>';
+  par.innerHTML = 'question ' + index +'<span class="pink"> / ' +difficolta +'</span>';
 }
 aggiornaDomanda(questions);
 
@@ -283,7 +286,7 @@ const generaRisultati = function () {
   corpoCentrale.appendChild(div1);
   const corrette = document.createElement('h2');
   div1.appendChild(corrette);
-  corrette.innerHTML = 'Correct' +'<br>' +'<strong>' +(punteggio/questions.length)*100 +'</strong>' +'%' //calcoliamo la percentuale di risposte giuste dato il punteggio
+  corrette.innerHTML = 'Correct' +'<br>' +'<strong>' +Math.round((punteggio/questions.length)*100) +'</strong>' +'%' //calcoliamo la percentuale di risposte giuste dato il punteggio
   const par1 = document.createElement('p');
   par1.innerHTML = punteggio +'/' +questions.length +' questions';
   div1.appendChild(par1);
@@ -322,7 +325,7 @@ const generaRisultati = function () {
   const div3 = document.createElement('div')
   const sbagliate = document.createElement('h2')
   let rispSbagliate = questions.length - punteggio;
-  sbagliate.innerHTML = 'Wrong' +'<br>' +'<strong>' +(rispSbagliate/questions.length)*100 +'</strong>' +'%';
+  sbagliate.innerHTML = 'Wrong' +'<br>' +'<strong>' +Math.round((rispSbagliate/questions.length)*100) +'</strong>' +'%';
   corpoCentrale.appendChild(div3);
   div3.appendChild(sbagliate)
   const par3 = document.createElement('p');
@@ -340,3 +343,4 @@ const generaRisultati = function () {
   container.appendChild(rateUs)
   
 }
+

@@ -294,6 +294,7 @@ const onlyTheYears = function (arr) {
   return movieYears;
 }
 
+
 /* ESERCIZIO 15
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
 */
@@ -318,6 +319,14 @@ const sumAllTheYears = function (arr) {
   return sommaAnni;
 }
 
+const sumAllTheYears2 = function () {
+  let somma = movies.reduce((acc, object) => acc + parseInt(object.Year), 0);
+  
+  return somma;
+}
+//console.log(sumAllTheYears2(movies));
+//sumAllTheYears2();
+
 /* ESERCIZIO 17
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
@@ -330,6 +339,13 @@ const searchByTitle = function (arr, string) {
   })
   return searchedMovie;
 }
+
+/* const searchByTitle2 = function (stringa) {
+  let filmCercato = movies.filter(movie => movie.Title.toLowerCase().includes(stringa.toLowerCase()));
+  return filmCercato;
+}
+let filmTrovato = searchByTitle2('Avengers: Infinity War');
+//console.log(filmTrovato) */
 
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
@@ -347,6 +363,7 @@ const searchAndDivide = function (arr, string) {
   return obj;
 }
 
+
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
@@ -354,6 +371,16 @@ const removeIndex = function (arr, index) {
   arr.splice(index, 1);
   return arr;
 }
+
+const removeIndex2 = function (numero) {
+  if(numero>=0 && numero.length) {
+    let risultante = movies.filter((movie,index) => index !== numero);
+    return risultante;
+  } else {
+    return movies;
+  }
+}
+//console.log(removeIndex2());
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
@@ -460,7 +487,7 @@ const halfTree = function (num) {
   }
   
 }
-//halfTree(9)
+halfTree(4)
 
 
 /* ESERCIZIO 28
@@ -491,7 +518,7 @@ const tree = function (num) {
     console.log(prova);
   }
 }
-//tree(10)
+tree(10)
 
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.

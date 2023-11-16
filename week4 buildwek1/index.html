@@ -26,6 +26,14 @@
                 <li>This exam will take approx. <strong>0-5 minutes.</strong></li>
             </ul>
 
+            <form id="difficolta">
+                <label for="difficolta">Select test level: </label>
+                <input type="radio" name="difficolta" value="5">Easy
+                <input type="radio" name="difficolta" value="7" checked>Medium
+                <input type="radio" name="difficolta" value="10">Hard
+            </form>
+            <br>
+
 
             <form class="condizioni" action="./test.html">
                 <div class="condizioni">
@@ -37,6 +45,17 @@
             </form>
         </div>
 
-        <script src="" async defer></script>
+        <script >
+            var diffSelezionata = 7;
+            var difficolta = document.getElementsByName('difficolta');
+            difficolta.forEach(el => {
+                el.addEventListener('click', function () {
+                    diffSelezionata = el.value;
+                    console.log(diffSelezionata)
+                    localStorage.setItem("storageName",diffSelezionata);
+                })
+            })
+            
+        </script>
     </body>
 </html>
