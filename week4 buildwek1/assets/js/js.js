@@ -145,6 +145,7 @@ const generaDomanda = function (arr, indice) {
         divRisposte.appendChild(risposte); //mettiamo ogni bottone dentro al div risposte
     }
 
+    // servira per pagina di recap
     results[index].domanda = arr[index].question; // inseriamo la domanda nell'array risultati ogni volta che viene generata una nuova domanda
     results[index].risposta_esatta = arr[index].correct_answer;// allo stesso modo inseriamo la risposta corretta
     
@@ -269,7 +270,7 @@ const sbagliate = function () {
 sbagliate()
 
 //funziona che cambia il numero della domanda mostrato a fine pagina
-const aggiornaDomanda = function (arr) {
+const aggiornaDomanda = function () {
   const par = document.getElementById('nDomanda');
   par.innerHTML = 'question ' + index +'<span class="pink"> / ' +difficolta +'</span>';
 }
