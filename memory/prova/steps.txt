@@ -1,0 +1,12 @@
+1 megadiv blu centrato
+2 ciclo for per inserire i div piccoli (24) disposti su 4 righe
+3 bottone ricomincia 
+4 timer
+
+
+assegnare a ogni casella un'immagine
+    imostare a ogni coppia di immagini una value
+al click rimuovi opacita'
+fare in modo che quando si trovano due immagini uguali restino scoperte
+una volta trovate tutte le coppie si ferma il timer e appare schermata per riniziare
+    qualcosa con il punteggio

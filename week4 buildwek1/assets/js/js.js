@@ -219,6 +219,7 @@ const premiTasti = function () {
     segnaPunti()
     sbagliate()
     aggiornaDomanda(questions);
+    updateProgressBar();
 
     //parte il timer
     i=59;
@@ -281,6 +282,8 @@ const generaRisultati = function () {
   par.remove();         //rimuove il conteggio delle domande a fondo pagina
   const timer = document.getElementById('timer');
   timer.remove();       //rimuove il timer
+  const barra = document.querySelector('.progress-bar');// rimuove la barra progressi alla pagina dei risultati
+  barra.remove();
 
   const contenitore = document.getElementById('container')
   contenitore.setAttribute('style', 'margin-top:2em;') //diamo un po di margine al contenitore principale
@@ -388,3 +391,10 @@ const generaRisultati = function () {
   console.log(results);
 }
 
+// funzione che crea la barra dei progressi sulle rimanenti domande
+function updateProgressBar() { 
+  totalQuestions = questions.length;
+  const progress = (index / (totalQuestions +1)) * 100; //calcola la percentuali di risposte date
+  const progressBar = document.querySelector('.progress');
+  progressBar.style.width = `${progress}%`; //imposta la lunghezza della barra colorata in base alla percentuale passata con la variabile progress
+}
