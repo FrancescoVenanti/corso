@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>responsivness</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      img {
+        width: 100%;
+        height: 30dvh;
+        object-fit: cover;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-top: 0;
+      }
+
+      h1 {
+        font-size: 104px;
+        font-weight: 400;
+      }
+      main {
+        padding: 2rem;
+      }
+      button {
+        border: none;
+        background-color: blanchedalmond;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+      }
+
+      /* le media query vanno inserite in modo progressivo (dal piu piccolo al piu grande per il min width e al contrario per il max width) */
+
+      @media screen and (max-width: 500px) {
+        /* da 0 a 500 px comportamento diverso */
+        h1 {
+          font-size: 44px;
+        }
+      }
+
+      @media screen and (min-width: 900px) {
+        /* da 900px in poi */
+        p {
+          font-size: 1.6rem;
+        }
+      }
+
+      @media screen and (min-width: 1200px) {
+        /* da 1200 in poi */
+        p {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <img
+      src="https://images.unsplash.com/photo-1700359911531-097e896d03b4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    />
+    <main>
+      <h1>Titolo della pagina</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, eum minus consequuntur eligendi perferendis
+        blanditiis tempora in laborum qui! Labore aperiam possimus repellat sint aliquid laudantium quos dolor
+        voluptatum tempore.
+      </p>
+
+      <button>click me</button>
+    </main>
+  </body>
+</html>
