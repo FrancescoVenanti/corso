@@ -294,7 +294,7 @@ footer a {
 }
 
 @media print {
-  img,
+  header img,
   header,
   section,
   iframe,
@@ -303,6 +303,11 @@ footer a {
     display: none;
   }
   h1 {
-    font-size: 32px;
+    font-size: 34px;
+  }
+  p,
+  ul,
+  li {
+    font-size: 22px;
   }
 }
