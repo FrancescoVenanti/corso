@@ -34,14 +34,18 @@
 
     <main>
       <article>
-        <h1>Come creare un template per i post</h1>
+        <h1>
+          Come creare un template per i post
+          <span class="underline"><img src="./assets/img/underline.svg" /></span>
+        </h1>
+
         <p>
           <i class="fas fa-pen-square"></i> di Mario Rossi -
           <span><i class="fas fa-clock"></i> pubblicato il 25-10-2020</span>
         </p>
-        <img src="./assets/img/html5.png" width="50px" />
 
-        <p>
+        <p class="flow-root">
+          <img src="./assets/img/badge.png" width="50px" />
           La prima cosa da fare è suddividere in blocchi logici la pagina, identificando le
           <strong>parti comuni</strong> da applicare a tutte le pagine
         </p>
@@ -164,6 +168,12 @@
     </main>
 
     <hr />
+    <button onclick="toTop()" class="fixed-btn" id="up">
+      <i class="fas fa-caret-square-up"></i
+      ><!-- <a href="#"></a> -->
+    </button>
+    <button class="fixed-btn" id="social"><i class="fas fa-plus"></i></button>
+    <button class="fixed-btn" id="calendar"><i class="far fa-calendar-alt"></i></button>
 
     <footer>
       <p>Blog Epicode &copy;2021</p>
@@ -172,5 +182,11 @@
         <a href="mailto:info@epicode.school" title="contattami per informazioni/lavoro/privacy">info@epicode.school</a>
       </address>
     </footer>
+
+    <script>
+      const toTop = function () {
+        document.documentElement.scrollTop = 0;
+      };
+    </script>
   </body>
 </html>
